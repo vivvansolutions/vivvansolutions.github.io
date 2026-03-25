@@ -1,1040 +1,1340 @@
-
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivvan Solutions | Corporate Training & Consulting</title>
+    <meta name="description" content="Vivvan Solutions — Transform your workforce with expert-led corporate training in sales, leadership, behavioral change, and more. 25+ years of experience, 3500+ professionals trained.">
+    <link rel="icon" href="assets/images/Screen Shot 2020-01-24 at 5.38.23 PM.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ============ CSS RESET & VARIABLES ============ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        :root {
+            --bg: #08070e;
+            --bg-card: #111019;
+            --bg-card-hover: #19172a;
+            --accent: #6c5ce7;
+            --accent2: #00cec9;
+            --accent-glow: rgba(108, 92, 231, 0.4);
+            --text: #eae8ff;
+            --text-dim: #9892b5;
+            --text-bright: #ffffff;
+            --border: rgba(255,255,255,0.06);
+            --radius: 16px;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1., user-scalable=no, target-densityDpi=device-dpi" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="0"/>
+        html { scroll-behavior: smooth; }
 
-    <meta name="description" content="">
-    <title>Vivvan Solutions</title>
-    <link rel="icon" href="assets/images/Screen Shot 2020-01-24 at 5.38.23 PM.png">
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-    <link rel="stylesheet" href="assets/tether/tether.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="assets/dropdown/css/style.css">
-    <link rel="stylesheet" href="assets/animatecss/animate.min.css">
-    <link rel="stylesheet" href="assets/socicon/css/styles.css">
-    <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
+        h1,h2,h3,h4,h5,h6 { font-family: var(--font-head); color: var(--text-bright); line-height: 1.2; }
 
+        a { color: var(--accent); text-decoration: none; transition: .3s; }
+        a:hover { color: var(--accent2); }
 
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+        /* Gradient text utility */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section spacing */
+        section { padding: 100px 0; position: relative; }
+
+        .section-label {
+            font-family: var(--font-head);
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+            text-align: center;
+        }
+
+        .section-heading {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-dim);
+            max-width: 560px;
+            margin: 0 auto 56px;
+            font-size: 1.05rem;
+        }
+
+        /* Glow decorator */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .35;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============ NAVIGATION ============ */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 999;
+            padding: 18px 0;
+            transition: .4s;
+        }
+        .nav.scrolled {
+            background: rgba(8,7,14,.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-brand img { width: 36px; height: 36px; object-fit: contain; }
+        .nav-brand-name {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-bright);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        .nav-links a {
+            color: var(--text-dim);
+            font-size: .9rem;
+            font-weight: 500;
+            transition: .3s;
+            text-decoration: none;
+        }
+        .nav-links a:hover { color: var(--text-bright); }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .9rem;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: .3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero .glow-orb.orb1 {
+            width: 600px; height: 600px;
+            background: var(--accent);
+            top: -200px; right: -200px;
+        }
+        .hero .glow-orb.orb2 {
+            width: 400px; height: 400px;
+            background: var(--accent2);
+            bottom: -100px; left: -100px;
+            opacity: .2;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-text h1 {
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            margin-bottom: 36px;
+            max-width: 480px;
+        }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-fill {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-fill:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--accent-glow); color: #fff; }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,.15);
+            color: var(--text);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .3s;
+            text-decoration: none;
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: rgba(108,92,231,.08); }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 4/3;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 80px rgba(0,0,0,.4);
+            position: relative;
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0; left: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .hero-image-wrapper img.active {
+            opacity: 1;
+        }
+        /* Floating stats on hero image */
+        .hero-stat {
+            position: absolute;
+            background: rgba(17,16,25,.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 22px;
+            z-index: 2;
+        }
+        .hero-stat .num {
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent2);
+        }
+        .hero-stat .label {
+            font-size: .8rem;
+            color: var(--text-dim);
+        }
+        .hero-stat.s1 { bottom: -20px; left: -30px; }
+        .hero-stat.s2 { top: -20px; right: -30px; }
+
+        /* ============ LOGO STRIP ============ */
+        .logo-strip {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo-strip p {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: .85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .logo-row img {
+            height: 40px;
+            object-fit: contain;
+            opacity: .45;
+            transition: .4s;
+            filter: brightness(0) invert(1);
+        }
+        .logo-row img:hover { opacity: .9; }
+
+        /* ============ SERVICES ============ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            transition: .4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(108,92,231,.3);
+            transform: translateY(-6px);
+        }
+        .service-icon-wrap {
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(108,92,231,.15), rgba(0,206,201,.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        .service-card ul {
+            list-style: none;
+        }
+        .service-card ul li {
+            color: var(--text-dim);
+            font-size: .9rem;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .service-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent2);
+        }
+
+        /* ============ ABOUT / PHILOSOPHY ============ */
+        .about-section {
+            background: linear-gradient(180deg, var(--bg) 0%, #0d0c18 100%);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .about-card {
+            background: linear-gradient(160deg, rgba(108,92,231,.08), rgba(0,206,201,.04));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px 28px;
+            text-align: center;
+            transition: .4s;
+        }
+        .about-card:hover {
+            border-color: var(--accent);
+            background: linear-gradient(160deg, rgba(108,92,231,.14), rgba(0,206,201,.08));
+            transform: translateY(-6px);
+        }
+        .about-card .icon {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .about-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        .about-card p { color: var(--text-dim); font-size: .95rem; }
+
+        .philosophy-block {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        /* ============ VALUES ============ */
+        .values-section { background: var(--bg); }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .value-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: .4s;
+        }
+        .value-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+        }
+        .value-card .v-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .value-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .value-card p { color: var(--text-dim); font-size: .88rem; }
+
+        /* ============ STATS BANNER ============ */
+        .stats-banner {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6, var(--accent2));
+            position: relative;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+        .stat-item { text-align: center; }
+        .stat-item .number {
+            font-family: var(--font-head);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .stat-item .s-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,.85);
+            margin-top: 4px;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials-section { background: var(--bg); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .test-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+            transition: .4s;
+        }
+        .test-card:hover {
+            border-color: rgba(108,92,231,.3);
+            background: var(--bg-card-hover);
+        }
+        .test-card .stars { color: #fbbf24; font-size: .85rem; margin-bottom: 16px; }
+        .test-card blockquote {
+            color: var(--text-dim);
+            font-size: .95rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .test-card .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .test-card .author img {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+        .test-card .author-info .name {
+            font-family: var(--font-head);
+            font-weight: 600;
+            color: var(--text-bright);
+            font-size: .95rem;
+        }
+        .test-card .author-info .role {
+            font-size: .8rem;
+            color: var(--text-dim);
+        }
+
+        /* ============ TEAM ============ */
+        .team-section {
+            background: linear-gradient(180deg, var(--bg), #0d0c18);
+        }
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: .4s;
+            text-align: center;
+            max-width: 360px;
+            width: 100%;
+        }
+        .team-card:hover { border-color: rgba(108,92,231,.3); transform: translateY(-6px); }
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 32px auto 0;
+            border: 3px solid var(--accent);
+        }
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s;
+        }
+        .team-card:hover .team-photo img { transform: scale(1.1); }
+        .team-info {
+            padding: 20px 28px 28px;
+        }
+        .team-info h3 { font-size: 1.4rem; margin-bottom: 4px; }
+        .team-info .role {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: .9rem;
+            margin-bottom: 16px;
+        }
+        .team-info .bio {
+            color: var(--text-dim);
+            font-size: .9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .team-socials { display: flex; gap: 12px; justify-content: center; }
+        .team-socials a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: .9rem;
+            transition: .3s;
+        }
+        .team-socials a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* ============ YOUTUBE ============ */
+        .yt-section { background: var(--bg); }
+        .yt-wrapper {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 80px rgba(0,0,0,.3);
+            aspect-ratio: 16/9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .yt-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ============ CONTACT ============ */
+        .contact-section {
+            background: linear-gradient(180deg, #0d0c18, var(--bg));
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .contact-left h3 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .contact-left > p {
+            color: var(--text-dim);
+            margin-bottom: 36px;
+            font-size: 1.05rem;
+        }
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+            align-items: flex-start;
+        }
+        .contact-item .c-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(108,92,231,.15), rgba(0,206,201,.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .contact-item h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .contact-item p, .contact-item a {
+            color: var(--text-dim);
+            font-size: .95rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+        }
+        .contact-form h4 {
+            font-size: 1.3rem;
+            margin-bottom: 28px;
+        }
+        .form-row { margin-bottom: 20px; }
+        .form-row input, .form-row textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,.03);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .95rem;
+            transition: .3s;
+            outline: none;
+        }
+        .form-row input:focus, .form-row textarea:focus {
+            border-color: var(--accent);
+            background: rgba(108,92,231,.05);
+            box-shadow: 0 0 0 3px rgba(108,92,231,.12);
+        }
+        .form-row input::placeholder, .form-row textarea::placeholder { color: var(--text-dim); opacity: .6; }
+        .form-row textarea { resize: vertical; min-height: 120px; }
+
+        .form-submit {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: #fff;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .3s;
+            width: 100%;
+        }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px var(--accent-glow); }
+
+        /* ============ FOOTER ============ */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-inner p { color: var(--text-dim); font-size: .85rem; }
+        .footer-inner small { color: var(--text-dim); font-size: .75rem; opacity: .6; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            transition: .3s;
+        }
+        .footer-social a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+        /* ============ REVEAL ANIMATION ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 72px 0; }
+
+            .nav-links {
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: rgba(8,7,14,.97);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 28px;
+                opacity: 0;
+                pointer-events: none;
+                transition: .4s;
+            }
+            .nav-links.open { opacity: 1; pointer-events: all; }
+            .nav-links a { font-size: 1.3rem; }
+            .hamburger { display: flex; z-index: 1001; }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-btns { justify-content: center; }
+            .hero-stat.s1 { left: 10px; bottom: -10px; }
+            .hero-stat.s2 { right: 10px; top: -10px; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+
+            .team-card { max-width: 320px; }
+
+            .stats-row { gap: 40px; }
+            .stat-item .number { font-size: 2.5rem; }
+
+            .logo-row { gap: 28px; }
+            .logo-row img { height: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-stat { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
 </head>
 <body>
-<section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
 
-
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-7" href="index.html">
-                    <a style="color:#ffffff;font-size: 35px;" href="index.html"> <img style="max-width:50px;max-height:50px;" src="assets/images/Screen Shot 2020-01-24 at 5.38.23 PM.png"><font color="#3090C7">Vivvan</font> <font color="#ffffff">Solutions</font>
-        <p><h6 style='color: #ffffff; padding: 0px;'>Bringing Core To The Fore</h6></p>
-
-      </a>
-
-
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
-                <a class="nav-link link text-white display-4" href="index.html">
-
-                    Home</a>
-            </li><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#accordion2-f">
-
-                Services
-            </a></li>
-                <li class="nav-item dropdown open">
-                    <a class="nav-link link text-white dropdown-toggle display-4" href="https://mobirise.com" data-toggle="dropdown-submenu" aria-expanded="true">
-
-                        About Us
-                    </a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="index.html#tabs3-i" aria-expanded="false">What Drives Us</a><a class="text-white dropdown-item display-4" href="index.html#content4-19" aria-expanded="false">Our Values</a>
-                    <a class="text-white dropdown-item display-4" href="https://www.linkedin.com/in/vivekjoshi70/detail/recent-activity/posts/">Our Articles and Blog Posts</a>
-
-
-                    <a class="text-white dropdown-item display-4" href="index.html#clients-a">Testimonials</a>
-                    <a class="text-white dropdown-item display-4" href="index.html#our-team">Our Team</a>
-                    <a class="text-white dropdown-item display-4" href="index.html#youtube">Youtube Channel</a></div>
-                </li><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#form4-e">Contact Us</a></li></ul>
-
+    <!-- ======== NAVIGATION ======== -->
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <img src="assets/images/Screen Shot 2020-01-24 at 5.38.23 PM.png" alt="Vivvan Solutions">
+                <span class="nav-brand-name">Vivvan Solutions</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
-</section>
 
-<section class="engine"><a href="https://mobirise.info/i">free web creation software</a></section><section class="carousel slide cid-r6WzPhXGEP" data-interval="false" id="slider1-7">
-
-
-
-    <div class="full-screen"><div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="3000"><ol class="carousel-indicators"><li data-app-prevent-settings="" data-target="#slider1-7" class=" active" data-slide-to="0"></li><li data-app-prevent-settings="" data-target="#slider1-7" data-slide-to="1"></li><li data-app-prevent-settings="" data-target="#slider1-7" data-slide-to="2"></li><li data-app-prevent-settings="" data-target="#slider1-7" data-slide-to="3"></li><li data-app-prevent-settings="" data-target="#slider1-7" data-slide-to="4"></li><li data-app-prevent-settings="" data-target="#slider1-7" data-slide-to="5"></li></ol><div class="carousel-inner" role="listbox"><div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/slider-1-2000x1335.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/slider-1-2000x1335.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-center"><h2 class="mbr-fonts-style display-1">We Bring The Best In You</h2></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/slider-2-1040x780.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/slider-2-1040x780.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-center"><h2 class="mbr-fonts-style display-1">We Design Powerful Experiences</h2></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/slider-3-2000x1500.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/slider-3-2000x1500.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-left"><h2 class="mbr-fonts-style display-1">We Bring Ideas To Life</h2></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/slider-4-2000x1335.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/slider-4-2000x1335.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-right"><h2 class="mbr-fonts-style display-1">We Help You Expand Your Horizons</h2></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/slider-5-2000x1335.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/slider-5-2000x1335.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-center"><h2 class="mbr-fonts-style display-1">We Help You Build A Better Future</h2></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/slider-6-2000x1335.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/slider-6-2000x1335.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-center"><h2 class="mbr-fonts-style display-1">Our Expertise,Your Growth</h2></div></div></div></div></div></div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-7"><span aria-hidden="true" class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a><a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-7"><span aria-hidden="true" class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a></div></div>
-
-</section>
-
-<section class="mbr-section article content10 cid-r6WKsFuq9G" id="content10-o">
-
-
-
-    <div class="container">
-        <div class="inner-container" style="width: 66%;">
-            <hr class="line" style="width: 25%;">
-            <div class="section-text align-center mbr-white mbr-fonts-style display-5"><strong>We work towards <p>BRINGING CORE TO THE FORE</p></strong> <p>We believe that the Skills are within an individual and these form the core of one’s existence; at <strong><font color="#3090C7">Vivvan</font> <font color="#ffffff">Solutions</font></strong> our efforts are directed towards bringing these skills to the fore. </p></div>
-            <hr class="line" style="width: 25%;">
-        </div>
-    </div>
-</section>
-
-<section class="accordion2 cid-r6WJkdErIB" id="accordion2-f">
-
-
-
-
-
-    <div class="container">
-        <div class="media-container-row pt-5">
-            <div class="accordion-content">
-                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Our Services</h2>
-                <h3 class="mbr-section-subtitle pt-2 align-center mbr-light mbr-fonts-style display-5">Our trainers are skilled in a variety of fields, currently we provide the following as services.</h3>
-                <div id="bootstrap-accordion_15" class="panel-group accordionStyles accordion pt-5 mt-3" role="tablist" aria-multiselectable="true">
-                    <div class="card" title="Click Here to know more">
-                        <div class="card-header" role="tab" id="headingsOne">
-                            <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse1_15" aria-expanded="false" aria-controls="collapse1">
-                                <h4 class="mbr-fonts-style display-5">
-                                    <span class="sign mbr-iconfont mbri-arrow-down inactive"></span>&nbsp;Selling Skills</h4>
-                            </a>
-                        </div>
-                        <div id="collapse1_15" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#bootstrap-accordion_15">
-                            <div class="panel-body p-4">
-                                <p class="mbr-fonts-style panel-text display-7">
-                                    Top factors that separate Sales Winners from Runners Up:
-                                <ul>
-                                    <li> Building Rapport</li>
-                                    <li>Sales Call Planning</li>
-                                    <li>Collaboration with Prospects</li>
-                                    <li>Sales Questioning Skills</li>
-                                    <li>Sales Presentation Skills</li>
-                                    <li>Gaining Commitment</li>
-
-                                </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <div class="card" title="Click Here to know more">
-                        <div class="card-header" role="tab" id="headingTwo">
-                            <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse2_15" aria-expanded="false" aria-controls="collapse2">
-                                <h4 class="mbr-fonts-style mbr-fonts-style display-5">
-                                    <span class="sign mbr-iconfont mbri-arrow-down inactive"></span>&nbsp;Soft Skills</h4>
-                            </a>
-
-                        </div>
-                        <div id="collapse2_15" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_15">
-                            <div class="panel-body p-4">
-                                <p class="mbr-fonts-style panel-text display-7">‘People Skills’ or ‘Interpersonal Skills’, relating to a persons ability to get along well
-                                    with others.
-                                <ul>
-                                    <li>Communication Skills</li>
-                                    <li>Ability to work in a team</li>
-                                    <li>Problem Solving Skills</li>
-                                    <li>Leadership Skills</li>
-                                    <li>Strong Work Ethics</li>
-
-                                </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="card" title="Click Here to know more">
-                        <div class="card-header" role="tab" id="headingThree">
-                            <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse3_15" aria-expanded="false" aria-controls="collapse3">
-                                <h4 class="mbr-fonts-style display-5">
-                                    <span class="sign mbr-iconfont mbri-arrow-down inactive"></span>&nbsp;Behavioural Change Training</h4>
-                            </a>
-                        </div>
-                        <div id="collapse3_15" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#bootstrap-accordion_15">
-                            <div class="panel-body p-4">
-                                <p class="mbr-fonts-style panel-text display-7">Behaviour is a response to stimuli. Behavioural Skills Training are social in nature. Concern of behavioural training is how well you can get along with other people, including your supervisor, your colleague, customer and client
-
-                                <ul>
-
-                                    <li>Self-Management</li>
-                                    <li>Self-Awareness</li>
-                                    <li>Responsible Decision making</li>
-                                    <li>Conflict Resolution</li>
-                                    <li>Relationship Skills</li>
-
-
-                                </ul>
-
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" title="Click Here to know more">
-                        <div class="card-header" role="tab" id="headingFour">
-                            <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse4_15" aria-expanded="false" aria-controls="collapse4">
-                                <h4 class="mbr-fonts-style display-5">
-                                    <span class="sign mbr-iconfont mbri-arrow-down inactive"></span>&nbsp;Campus to Corporate Programs</h4>
-                            </a>
-                        </div>
-                        <div id="collapse4_15" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#bootstrap-accordion_15">
-                            <div class="panel-body p-4">
-                                <p class="mbr-fonts-style panel-text display-7">
-                                    Transition from Campus to Corporate is a big adjustment for many graduates, graduates need to travel from assignments and semesters to work and deadlines. C2C model of training programs aims to make the transition easy. C2C works on:
-
-                                <ul>
-
-                                    <li>Communication Skills</li>
-                                    <li>How to make a good first impression</li>
-                                    <li>Professional Conduct</li>
-                                    <li>Behavioural Modelling</li>
-
-
-                                </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="card" title="Click Here to know more">
-                        <div class="card-header" role="tab" id="headingFive">
-                            <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse5_15" aria-expanded="false" aria-controls="collapse2">
-                                <h4 class="mbr-fonts-style mbr-fonts-style display-5">
-                                    <span class="sign mbr-iconfont mbri-arrow-down inactive"></span>&nbsp;Gender Sensitization and POSH <p style="font-size: large; align:justify" >(Prevention of Sexual Harassment)</p></h4>
-                            </a>
-
-                        </div>
-                        <div id="collapse5_15" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_15">
-                            <div class="panel-body p-4">
-                                <ul>
-                                    <li>Gender Issues</li>
-                                    <li>Diversity and Inclusion</li>
-                                    <li>Stereotypes and Gender Role Perception</li>
-                                    <li>Gender discrimination</li>
-                                    <li>Gender Parity</li>
-                                    <li>Understand Sexual Harassment of Women at Workplace Prevention Act, 2013 – (SHWWP Act, 2013) especially in terms of:</li>
-                                    <ul>
-                                        <li>Prohibition</li>
-                                        <li>Prevention</li>
-                                        <li>Redressal</li>
-                                    </ul>
-                                    <li>Draft your company’s POSH Policy</li>
-                                </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-                    <div class="card" title="Click Here to know more">
-                        <div class="card-header" role="tab" id="headingSix">
-                            <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse6_15" aria-expanded="false" aria-controls="collapse2">
-                                <h4 class="mbr-fonts-style mbr-fonts-style display-5">
-                                    <span class="sign mbr-iconfont mbri-arrow-down inactive"></span>&nbsp;Psychological Counselling</h4>
-                            </a>
-
-                        </div>
-                        <div id="collapse6_15" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_15">
-                            <div class="panel-body p-4">
-                                <ul>
-                                    <li>Career development and Career Counselling</li>
-                                    <li>Targeted Soft Skills development</li>
-                                    <li>Understanding and bringing about Behavioural Change</li>
-                                    <li>Resilience – Stress Management</li>
-                                </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-            </div>
-            <div class="mbr-figure" style="width: 108%;">
-                <img src="assets/images/services.jpg" alt="services" title="">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="tabs3 cid-r6WJSxjiju" id="tabs3-i">
-
-
-
-
-
-    <div class="container">
-        <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-            About Us</h2>
-        <h3 class="mbr-section-subtitle  display-5 align-center mbr-light mbr-fonts-style"><strong><font color="#3090C7">Vivvan</font> <font color="#000000">Solutions</font></strong> works on the Principle of Kaizen, <em>Continuous Improvement</em>. <p>We believe that an individual needs to take incremental steps towards continuous improvement.</p> Continuous Improvement should lead to a fulfilling life; We at <strong><font color="#3090C7">Vivvan</font> <font color="#000000">Solutions</font></strong> believe that a fulfilling Life must have the following <strong>three </strong>in the right proportion:<br><br></h3>
-    </div>
-    <div class="container-fluid">
-        <div class="row tabcont">
-            <ul class="nav nav-tabs pt-3 mt-5" role="tablist">
-                <li class="nav-item mbr-fonts-style"><a class="nav-link active show display-7" role="tab" data-toggle="tab" href="#tabs3-i_tab0" aria-selected="true">
-                    Intelligence Quotient
-                </a></li>
-                <li class="nav-item mbr-fonts-style"><a class="nav-link  active show display-7" role="tab" data-toggle="tab" href="#tabs3-i_tab1" aria-selected="true">
-                    Emotional Quotient</a></li>
-                <li class="nav-item mbr-fonts-style"><a class="nav-link active show display-7" role="tab" data-toggle="tab" href="#tabs3-i_tab2" aria-selected="true">
-                    Spiritual Quotient</a></li>
-
-
-
-            </ul>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row px-1">
-            <div class="tab-content">
-                <div id="tab1" class="tab-pane in active mbr-table" role="tabpanel">
-                    <div class="row tab-content-row">
-                        <div class="col-xs-12 col-md-6">
-                            <div class="card-img ">
-                                <span class="mbr-iconfont mbri-idea"></span>
-                            </div>
-                            <h4 class="mbr-element-title  align-center mbr-fonts-style pb-2 display-5">
-                                Intelligence Quotient</h4>
-                            <p class="mbr-section-text  align-center mbr-fonts-style display-7">
-                                Person’s reasoning ability. A measure of a person’s cognitive capacity relative to his or her peers.</p>
-                        </div>
-
-
-
-
-
-
+    <!-- ======== HERO ======== -->
+    <section class="hero" id="home">
+        <div class="glow-orb orb1"></div>
+        <div class="glow-orb orb2"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <p style="color:var(--accent); font-weight:600; font-size:.9rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Corporate Training & Consulting</p>
+                    <h1>We bring the <span class="gradient-text">core</span> to the <span class="gradient-text">fore</span>.</h1>
+                    <p>Transform your workforce through expert-led training in sales excellence, leadership development, behavioral change, and organizational growth. 25+ years of proven results.</p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn-fill"><i class="fas fa-arrow-right"></i> Get Started</a>
+                        <a href="#services" class="btn-outline"><i class="fas fa-grid"></i> Our Services</a>
                     </div>
                 </div>
-
-                <div id="tab2" class="tab-pane  mbr-table" role="tabpanel">
-                    <div class="row tab-content-row">
-                        <div class="col-xs-12 col-md-6">
-                            <div class="card-img ">
-                                <span class="mbr-iconfont mbri-smile-face"></span>
-                            </div>
-                            <h4 class="mbr-element-title  align-center mbr-fonts-style pb-2 display-5">
-                                Emotional Quotient</h4>
-                            <p class="mbr-section-text  align-center mbr-fonts-style display-7">
-                                A person’ s capability to recognise their own emotions and those of others. An ability to understand, use and manage your own emotions in positive ways to relieve stress, empathise with others and diffuse conflict.</p>
-                        </div>
-
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper" id="heroCarousel">
+                        <img src="assets/images/slider-1-2000x1335.jpg" alt="Corporate training session" class="active">
+                        <img src="assets/images/slider-3-2000x1500.jpg" alt="Bringing ideas to life">
+                        <img src="assets/images/slider-4-2000x1335.jpg" alt="Expanding horizons">
+                        <img src="assets/images/slider-5-2000x1335.jpg" alt="Building a better future">
+                        <img src="assets/images/slider-6-2000x1335.jpg" alt="Our expertise, your growth">
                     </div>
-                </div>
-
-                <div id="tab3" class="tab-pane  mbr-table" role="tabpanel">
-                    <div class="row tab-content-row">
-                        <div class="col-xs-12 col-md-6">
-                            <div class="card-img ">
-                                <span class="mbr-iconfont mbri-user"></span>
-                            </div>
-                            <h4 class="mbr-element-title  align-center mbr-fonts-style pb-2 display-5">
-                                Spiritual Quotient</h4>
-                            <p class="mbr-section-text  align-center mbr-fonts-style display-7">
-                                The ability to ask fundamental questions in Life and seek answers. A tendency to ask fundamental “WHY” question.</p>
-                        </div>
-
-
-
-
-
-
+                    <div class="hero-stat s1">
+                        <div class="num">250+</div>
+                        <div class="label">Talks Delivered</div>
                     </div>
-                </div>
-
-
-
-
-
-
-
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <br>
-    <br>
-    <div class="container">
-        <h3 class="mbr-section-subtitle  display-5 align-center mbr-light mbr-fonts-style">We call it the <strong>Holy Trinity </strong> and our endeavours are directed towards attaining this balance.
-
-            <p>We are a group of committed trainers with a mission to seek Continuous Improvement so as to ensure that TOMORROW is better than what TODAY is. </p>
-        </h3>
-    </div>
-</section>
-
-<section class="mbr-section content4 cid-r6Z2ymUsVa" id="content4-19">
-
-
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    Our Company Values</h2>
-
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section article content12 cid-r6Z1Q7MGYh" id="content12-18">
-
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="mbr-text counter-container col-12 col-md-8 mbr-fonts-style display-7">
-                <ul>
-                    <li><strong>Integrity</strong></li>
-                    <li><strong>Transparency</strong></li>
-                    <li><strong>Adherence To Commitments </strong>&nbsp;</li>
-                    <li><strong>Client's Best Interest</strong></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="counters2 counters cid-r6WK7SGWhe" id="counters2-m">
-
-
-
-
-
-    <div class="container pt-4 mt-2">
-        <div class="media-container-row">
-            <div class="media-block" style="width: 50%;">
-                <h2 class="mbr-section-title pb-3 align-left mbr-fonts-style display-2">
-                    Our Accomplishments</h2>
-
-                <div class="mbr-figure">
-                    <img src="assets/images/13-1046x698.jpg" alt="" title="">
-                </div>
-            </div>
-            <div class="cards-block">
-                <div class="cards-container">
-                    <div class="card px-3 align-left col-12 col-md-6">
-                        <div class="panel-item p-3">
-                            <div class="card-img pb-3">
-                                <span class="mbr-iconfont pr-2 mbri-paper-plane"></span>
-                                <h3 class="count py-3 mbr-fonts-style display-2">
-                                    250</h3>
-                            </div>
-                            <div class="card-text">
-                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">
-                                    Talks Given</h4>
-                                <p class="mbr-content-text mbr-fonts-style display-7">
-                                    We have successfully given more than 250 talks in events nationwide.</p>
-                            </div>
-                        </div>
+                    <div class="hero-stat s2">
+                        <div class="num">3500+</div>
+                        <div class="label">Professionals Trained</div>
                     </div>
-                    <div class="card px-3 align-left col-12 col-md-6">
-                        <div class="panel-item p-3">
-                            <div class="card-img pb-3">
-                                <span class="mbr-iconfont pr-2 mbri-like"></span>
-                                <h3 class="count py-3 mbr-fonts-style display-2">3500</h3>
-                            </div>
-                            <div class="card-text">
-                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">
-                                    Satisfied Participants</h4>
-                                <p class="mbr-content-text mbr-fonts-style display-7">We belive that a satisfied particpiant is the best source of advertisement.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card px-3 align-left col-12 col-md-6">
-                        <div class="panel-item p-3">
-                            <div class="card-img pb-3">
-                                <span class="mbr-iconfont pr-2 mbri-globe-2" style=""></span>
-                                <h3 class="count py-3 mbr-fonts-style display-2">2</h3>
-                            </div>
-                            <div class="card-text">
-                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Locations Worldwide</h4>
-                                <p class="mbr-content-text mbr-fonts-style display-7">Our presence Nationwide and our global tieups.</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-
-<section class="clients cid-r6WIiWnGe5" id="clients-a" style="background-color: #ffffff;background: linear-gradient(#ffffff, #ffffff);">
-
-
-
-    <div class="container mb-5">
-        <div class="media-container-row">
-            <div class="col-12 align-center">
-                <h2 class="mbr-section-title pb-3 mbr-fonts-style display-2">
-                    Our Experience
-                </h2>
-                <h3 class="mbr-section-subtitle mbr-light mbr-fonts-style display-5">
-                    We are priveleged to have worked with such prestigious brands, are you the next?</h3>
+    <!-- ======== LOGO STRIP ======== -->
+    <section class="logo-strip" id="clients">
+        <div class="container">
+            <p>Trusted by industry leaders</p>
+            <div class="logo-row">
+                <img src="assets/images/sun-pharma-logo-sun-pharmaceutical-533x700.png" alt="Sun Pharma">
+                <img src="assets/images/pngpix-com-eli-lilly-logo-png-transparent-500x300.png" alt="Eli Lilly">
+                <img src="assets/images/reliance_logo.png" alt="Reliance">
+                <img src="assets/images/wockhardt-logo-2-1404x583.png" alt="Wockhardt">
+                <img src="assets/images/thomascook.png" alt="Thomas Cook">
+                <img src="assets/images/logo-5-404x88.png" alt="Client">
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container">
-        <div class="carousel slide" data-ride="carousel" role="listbox">
-            <div class="carousel-inner" data-visible="5">
+    <!-- ======== SERVICES ======== -->
+    <section id="services">
+        <div class="container">
+            <span class="section-label reveal">What We Do</span>
+            <h2 class="section-heading reveal">Services Built for <span class="gradient-text">Real Impact</span></h2>
+            <p class="section-desc reveal">From sales mastery to psychological resilience, our programs are designed to create measurable, lasting change in your organization.</p>
 
-
-
-
-
-                <div class="carousel-item ">
-                    <div class="media-container-row">
-                        <div class="col-md-12">
-                            <div class="wrap-img ">
-                                <img src="assets/images/ranbaxy-200x200.png" class="img-responsive clients-img" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                    <h3>Selling Skills</h3>
+                    <ul>
+                        <li>Building Rapport & Trust</li>
+                        <li>Strategic Sales Call Planning</li>
+                        <li>Prospect Collaboration</li>
+                        <li>Advanced Questioning Techniques</li>
+                        <li>Presentation Excellence</li>
+                        <li>Gaining Commitment & Closing</li>
+                    </ul>
                 </div>
-
-                <div class="carousel-item ">
-                    <div class="media-container-row">
-                        <div class="col-md-12">
-                            <div class="wrap-img ">
-                                <img src="assets/images/thomascook.png" class="img-responsive clients-img" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-users"></i></div>
+                    <h3>Soft Skills Development</h3>
+                    <ul>
+                        <li>Communication Mastery</li>
+                        <li>Team Collaboration</li>
+                        <li>Creative Problem Solving</li>
+                        <li>Leadership Excellence</li>
+                        <li>Professional Work Ethics</li>
+                        <li>Interpersonal Growth</li>
+                    </ul>
                 </div>
-
-
-                <div class="carousel-item ">
-                    <div class="media-container-row">
-                        <div class="col-md-12">
-                            <div class="wrap-img ">
-                                <img src="assets/images/logo-5-404x88.png" class="img-responsive clients-img" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-brain"></i></div>
+                    <h3>Behavioral Change</h3>
+                    <ul>
+                        <li>Self-Management Frameworks</li>
+                        <li>Deep Self-Awareness</li>
+                        <li>Responsible Decision Making</li>
+                        <li>Conflict Resolution</li>
+                        <li>Relationship Intelligence</li>
+                        <li>Emotional Regulation</li>
+                    </ul>
                 </div>
-                <div class="carousel-item ">
-                    <div class="media-container-row">
-                        <div class="col-md-12">
-                            <div class="wrap-img ">
-                                <img src="assets/images/sun-pharma-logo-sun-pharmaceutical-533x700.png" class="img-responsive clients-img" alt="" title=""></a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Campus to Corporate</h3>
+                    <ul>
+                        <li>Professional Communication</li>
+                        <li>First Impression Mastery</li>
+                        <li>Corporate Conduct & Etiquette</li>
+                        <li>Behavioral Modeling</li>
+                        <li>Workplace Readiness</li>
+                        <li>Career Launchpad Skills</li>
+                    </ul>
                 </div>
-                <div class="carousel-item ">
-                    <div class="media-container-row">
-                        <div class="col-md-12">
-                            <div class="wrap-img ">
-                                <img src="assets/images/pngpix-com-eli-lilly-logo-png-transparent-500x300.png" class="img-responsive clients-img" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-shield-halved"></i></div>
+                    <h3>POSH & Gender Sensitization</h3>
+                    <ul>
+                        <li>Gender Awareness Training</li>
+                        <li>Diversity & Inclusion</li>
+                        <li>Stereotype Elimination</li>
+                        <li>SHWWP Act 2013 Compliance</li>
+                        <li>POSH Policy Drafting</li>
+                        <li>Safe Workplace Culture</li>
+                    </ul>
                 </div>
-                <div class="carousel-item ">
-                    <div class="media-container-row">
-                        <div class="col-md-12">
-                            <div class="wrap-img ">
-                                <img src="assets/images/reliance_logo.png" class="img-responsive clients-img" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                <div class="media-container-row">
-                    <div class="col-md-12">
-                        <div class="wrap-img ">
-                            <img src="assets/images/wockhardt-logo-2-1404x583.png" class="img-responsive clients-img" alt="" title="">
-                        </div>
-                    </div>
-                </div>
-            </div></div>
-            <div class="carousel-controls">
-                <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev">
-                    <span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next">
-                    <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="carousel slide testimonials-slider cid-r6WICfDzkQ" id="testimonials-slider1-b" style="background-color: #f9f9f9;max-height:760px;height:760px;"">
-
-
-
-
-
-    <div class="container text-center">
-        <h2 class="pb-5 mbr-fonts-style display-2">
-            RECOMMENDATIONS <sup>*</sup>
-        </h2>
-
-        <div class="carousel slide" data-ride="carousel" role="listbox">
-            <div class="carousel-inner">
-
-
-                <div class="carousel-item">
-                    <div class="user col-md-8">
-                        <div class="user_image">
-                            <img src="assets/images/face3-400x400.jpg" alt="" title="">
-                        </div>
-
-                        <div class="user_text pb-3">
-                            <p class="mbr-fonts-style display-7"><em>
-                                "I know Vivek since 2009 May. He has the knack of developing a good well knit team and his RM's under him were continuous professional performers. He is a good coach and mentor for his team. He has excellent communication skills and has developed fantastic KOL pool with whom he has developed excellent contacts. In addition to Intensive care portfolio products he has extensive knowledge of handling Chronic products portfolio . I am sure Vivek can be a very good asset to any company"</em></p>
-                        </div>
-                        <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7"><p>
-                            Shiva Kumar</p></div>
-                        <div class="user_desk mbr-light mbr-fonts-style display-7">
-                            Associate Vice President at Biocon</div>
-                    </div>
-                </div>
-
-
-
-                <div class="carousel-item">
-                    <div class="user col-md-8">
-                        <div class="user_image">
-                            <img src="assets/images/face2-200x200.jpg" alt="" title="">
-                        </div>
-
-
-                        <div class="user_text pb-3">
-                            <p class="mbr-fonts-style display-7"><em>
-                                "Vivek is one amongst the few sales managers who have a very strong sales oreintation aqs well as Business acumen. As i know him , he is a man of few words, is known for his intelligent conversations and value add whereever needed.
-                                <br>
-                                <br>Not a person who will get carried away by the heirarchial postion of any individual , he is at ease with the Bosses as well as livens up the environment in presence of his subordinates.
-                                <br>A warm person,who is always approachable to his team mates, and is always consistent in his approach towards individuals.
-                                <br>He likely certainity in everything he does , a stickler for perfection."</em></p>
-                        </div>
-                        <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
-                            Abdul Sukkur</div>
-                        <div class="user_desk mbr-light mbr-fonts-style display-7">
-                            Vice President- Consulting at AIOCD Pharmasofttech AWACS Pvt. Ltd</div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="carousel-item">
-                    <div class="user col-md-8">
-                        <div class="user_image">
-                            <img src="assets/images/face1-400x400.jpg" alt="" title="">
-                        </div>
-                        <div class="user_text pb-3">
-                            <p class="mbr-fonts-style display-7"><em>
-                                “Mr. Joshi is a brilliant Sr. Sales &amp; marketing professional with many years of experience! He successfully runs multiple &amp;, manages several MeetUp groups, and is an amazing kayaker. He is extremely enthusiastic about his work which is infectious, makes it fun to learn, and easy to remember. He always has a creative, positive outlook and he’s good at organizing and bringing people together. His presentation style is open and inviting to questions, engaging, and thorough. I had the privilege of working with Mr. Vivek Joshi!”</em></p>
-                        </div>
-                        <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
-                            J K Singha</div>
-                        <div class="user_desk mbr-light mbr-fonts-style display-7">
-                            Founder &amp; CMD at HealWell24&nbsp;</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="user col-md-8">
-                        <div class="user_image">
-                            <img src="assets/images/face4-400x400.jpg" alt="" title="">
-                        </div>
-                        <div class="user_text pb-3">
-                            <p class="mbr-fonts-style display-7"><em>
-                                "Vivek is a people leader and an astute business manager. He is sharp, result oriented and foucssed in his approach. He possess excellent communciation and analytical skills. His understanding about key business drivers and market dynamics is outstanding. He drives execution of marketing strategy to the core and delivers the desired results consistently. He is an assest to any organisation. He played pivotal role in turning around Intensiva business at North and East region during the year 2009 and lead the team from the front. I would always want people like him in my team."</em></p>
-                        </div>
-                        <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
-                            Ashiesh Kothaari</div>
-                        <div class="user_desk mbr-light mbr-fonts-style display-7">
-                            Commercial Leader</div>
-                    </div>
-                </div></div>
-
-            <div class="carousel-controls">
-                <a class="carousel-control-prev" role="button" data-slide="prev">
-                    <span aria-hidden="true" class="mbri-arrow-prev mbr-iconfont"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-
-                <a class="carousel-control-next" role="button" data-slide="next">
-                    <span aria-hidden="true" class="mbri-arrow-next mbr-iconfont"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!---------------------------      start our team   -------------------------->
-
-<section id="our-team" class="teams" style="background-color: #ffffff">
-    <br>
-   <h4>MEET OUR TEAM</h4>
-    <div class="cards-container">
-
-        <div class="card_team card-one">
-            <header>
-                <div class="avatar">
-                    <img src="assets/images/9-380x623.jpg" alt="Vivek Joshi" />
-                </div>
-            </header>
-
-            <h3>Vivek Joshi</h3>
-            <div class="desc">
-                Founder & CEO
-            </div>
-            <div class="contacts">
-                <a href="#modal1" data-toggle="modal"><i class="fa fa-plus"></i></a>
-                <a href="https://wa.me/919712937207"><i class="fa fa-whatsapp"></i></a>
-                <a href="mailto:vivekjoshi@vivvansolutions.com"><i class="fa fa-envelope"></i></a>
-                <div class="clear"></div>
-            </div>
-
-            <footer>
-                <a href="https://www.facebook.com/vivek.joshi.7393264"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/vivekjoshi70/"><i class="fa fa-linkedin"></i></a>
-            </footer>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal1" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header"  style="background-color: #0d0d0d">
-                            <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
-                            <h4 class="modal-title"></h4>
-                        </div>
-                        <div class="modal-body">
-                            <p> Vivek has over 25 years’ experience in Sales, Marketing, Human Resources, Learning & Development and Customer Service. He is an accomplished professional who has a rare distinction of Heading Sales & Marketing as well as Human Resource Management function.
-
-                                Vivek Joshi is a trainer by passion and has an innate ability to take the participants on a knowledge tour with a fun and learning experience. Vivek has a background in Marketing, Law and Psychology. His background and vast corporate leadership experience enable him to understand human behaviour and the importance of human component in business development.
-
-                                As a trainer and facilitator Vivek can impact in the areas of inspiring students / employees/ associates / Teachers for giving their best, facing challenges with grace, and to be a brand ambassador for their organization.
-                                Vivek is a Science and Law graduate of Delhi University with Post Graduate qualification in Marketing from Symbiosis. He also has a Master’s in Psychology & is associated with XLRI, a premier management institute, for sharpening the edges of Talent Management.
-
-                                Vivek has been associated with MNC like <strong>Eli Lilly, Otsuka, Schwabe and Indian giants like Ranbaxy, Sun and Wockhardt</strong>.
-
-                                Vivek is a Certified Trainer and Sales Consultant who works with Corporates for ensuring Customer Delight. He is a <strong>Trained Lawyer, NLP Practitioner and a Psychoanalyst</strong>.     </p>
-                        </div>
-                        <div class="modal-footer" style="background-color: #0d0d0d">
-                           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="card_team card-one">
-            <header>
-                <div class="avatar">
-                    <img src="assets/images/manasi_pic.jpg" alt="Manasi" />
-                </div>
-            </header>
-
-            <h3>Manasi</h3>
-            <div class="desc">
-                Head - Learning & Development
-            </div>
-            <div class="contacts">
-                <a href="#modal2" data-toggle="modal"><i class="fa fa-plus"></i></a>
-                <a href="#"><i class="fa fa-whatsapp"></i></a>
-                <a href="mailto:vivekjoshi@vivvansolutions.com"><i class="fa fa-envelope"></i></a>
-                <div class="clear"></div>
-            </div>
-
-            <footer>
-                <p>
-                    <a href="https://www.facebook.com/manasijoshi.blue"><i class="fa fa-facebook"></i></a>
-                </p>
-            </footer>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal2" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header"  style="background-color: #0d0d0d">
-                            <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
-                            <h4 class="modal-title"></h4>
-                        </div>
-                        <div class="modal-body">
-                            <p> To develop a holistic understanding of human life, Manasi completed her graduation in sociology from Hindu college, Delhi University followed by Master’s in Gender Studies to develop a theoretical base for better comprehension of people and society. Manasi has collaborated with a number of organizations working in the field of women empowerment, gender parity, education and rural development. She has widely worked around giving gender training to men and women of all ages, hoping to build a gender sensitive world.
-
-                                During her stint at “People For Parity” she learned the art of facilitation to curb gender discrimination through change fellows by motivating and enabling them to fight the “Gender Peace battle” in their respective communities. As a Gandhi fellow, she joined the Gandhi Fellowship Program in Churu district of Rajasthan. Her intervention areas varied from working on the mind-set change of school stakeholders such as principals, teachers, and parents for positively impacting student learning levels, to creating sustainable solutions for the problems of the communities in which these schools were located. She has catered to some of the major problems faced by them by collaborating with government officials to drive change at a larger and deeper level. Her work involved strengthening the implementation of government policies in schools through direct and indirect interventions.
-                                Manasi conducted self-defence workshops across 35 schools impacting more than 1000 girls aged between 14 and 18 years in Churu district. Currently, as a part of Udhyam Learning Foundation, she is working with the Delhi Government on developing Entrepreneurial Mindset Curriculum.    </p>
-                        </div>
-                        <div class="modal-footer" style="background-color: #0d0d0d">
-                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        </div>
-                    </div>
-
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-heart-pulse"></i></div>
+                    <h3>Psychological Counselling</h3>
+                    <ul>
+                        <li>Career Development Planning</li>
+                        <li>Targeted Skill Building</li>
+                        <li>Behavioral Transformation</li>
+                        <li>Resilience & Grit Building</li>
+                        <li>Stress Management</li>
+                        <li>Personal Growth Coaching</li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="clear"></div>
-    </div>
-</section>
+    <!-- ======== ABOUT / PHILOSOPHY ======== -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <span class="section-label reveal">Our Philosophy</span>
+            <h2 class="section-heading reveal">The <span class="gradient-text">Holy Trinity</span> of Growth</h2>
+            <p class="section-desc reveal">True excellence emerges when intellect, emotion, and purpose work in harmony. We develop the whole individual.</p>
 
-<script>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>IQ: Intelligence</h3>
+                    <p>Cognitive sharpness, analytical thinking, and the technical competence that drives professional excellence and sound decision-making.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h3>EQ: Emotion</h3>
+                    <p>Self-awareness, empathy, and emotional intelligence that foster meaningful human connections and high-performing team dynamics.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="icon"><i class="fas fa-sun"></i></div>
+                    <h3>SQ: Spirit</h3>
+                    <p>Purpose, values alignment, and a deeper sense of meaning that inspires authentic leadership and lasting, sustainable impact.</p>
+                </div>
+            </div>
 
-</script>
+            <div class="philosophy-block reveal">
+                We operate on the principle of <strong style="color:var(--accent)">Kaizen</strong> — continuous improvement. We are a group of committed trainers with a mission to ensure that tomorrow is always better than today. Our programs develop intellectually sharp, emotionally intelligent, and purpose-driven professionals who become catalysts for organizational growth.
+            </div>
+        </div>
+    </section>
 
+    <!-- ======== VALUES ======== -->
+    <section class="values-section" id="values">
+        <div class="container">
+            <span class="section-label reveal">What Drives Us</span>
+            <h2 class="section-heading reveal">Our Core <span class="gradient-text">Values</span></h2>
+            <p class="section-desc reveal">The non-negotiable principles that guide every engagement.</p>
 
-<!---------------------------      break    -------------------------->
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <span class="v-icon">🛡️</span>
+                    <h3>Integrity</h3>
+                    <p>Unwavering honesty and moral principles in every interaction.</p>
+                </div>
+                <div class="value-card reveal">
+                    <span class="v-icon">🔍</span>
+                    <h3>Transparency</h3>
+                    <p>Open communication and clear visibility into processes and outcomes.</p>
+                </div>
+                <div class="value-card reveal">
+                    <span class="v-icon">✅</span>
+                    <h3>Commitment</h3>
+                    <p>Delivering on every promise, consistently and with excellence.</p>
+                </div>
+                <div class="value-card reveal">
+                    <span class="v-icon">🏆</span>
+                    <h3>Client First</h3>
+                    <p>Your success is our success. We prioritize creating maximum value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ======== STATS BANNER ======== -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="number" data-target="250">0+</div>
+                    <div class="s-label">Talks Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number" data-target="3500">0+</div>
+                    <div class="s-label">Professionals Trained</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number" data-target="25">0+</div>
+                    <div class="s-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number" data-target="2">0</div>
+                    <div class="s-label">Locations</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ======== TESTIMONIALS ======== -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <span class="section-label reveal">Testimonials</span>
+            <h2 class="section-heading reveal">What Our <span class="gradient-text">Clients Say</span></h2>
+            <p class="section-desc reveal">Real feedback from leaders who've experienced the Vivvan difference.</p>
 
-<section class="mbr-section form4 cid-r6WIMYrtytt" id="youtube" style="background-color: #f9f9f9; align:center">
+            <div class="testimonials-grid">
+                <div class="test-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"Vivek has the knack of developing well-knit teams. He is an excellent coach and mentor with outstanding communication skills. A terrific asset to any organization looking to build high-performance culture."</blockquote>
+                    <div class="author">
+                        <img src="assets/images/face3-400x400.jpg" alt="Shiva Kumar">
+                        <div class="author-info">
+                            <div class="name">Shiva Kumar</div>
+                            <div class="role">Associate Vice President, Biocon</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"One of the few sales managers with incredibly strong sales orientation and business acumen. Known for intelligent conversations and value-add wherever needed. A warm person, always consistent in approach."</blockquote>
+                    <div class="author">
+                        <img src="assets/images/face2-200x200.jpg" alt="Abdul Sukkur">
+                        <div class="author-info">
+                            <div class="name">Abdul Sukkur</div>
+                            <div class="role">VP Consulting, AIOCD Pharmasofttech AWACS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"A brilliant senior sales and marketing professional. Extremely enthusiastic — his energy is infectious, makes learning fun and easy to remember. His presentation style is open, engaging, and thorough."</blockquote>
+                    <div class="author">
+                        <img src="assets/images/face1-400x400.jpg" alt="J K Singha">
+                        <div class="author-info">
+                            <div class="name">J K Singha</div>
+                            <div class="role">Founder & CMD, HealWell24</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"A people leader and astute business manager. Sharp, result-oriented, and focused. Outstanding understanding of business drivers. He drives execution of marketing strategy to the core and delivers consistently."</blockquote>
+                    <div class="author">
+                        <img src="assets/images/face4-400x400.jpg" alt="Ashiesh Kothaari">
+                        <div class="author-info">
+                            <div class="name">Ashiesh Kothaari</div>
+                            <div class="role">Commercial Leader</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div style="text-align:center; padding-top:1%;padding-bottom:1%" >
+    <!-- ======== TEAM ======== -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <span class="section-label reveal">Our People</span>
+            <h2 class="section-heading reveal">Meet the <span class="gradient-text">Leadership</span></h2>
+            <p class="section-desc reveal">The experts driving our mission of continuous improvement.</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=UUnRDgypdmWmTZXkrPOu_xrg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-photo">
+                        <img src="assets/images/9-380x623.jpg" alt="Vivek Joshi">
+                    </div>
+                    <div class="team-info">
+                        <h3>Vivek Joshi</h3>
+                        <div class="role">Founder & CEO</div>
+                        <p class="bio">25+ years across Sales, Marketing, HR & L&D. Backgrounds in Marketing, Law & Psychology. Worked with Eli Lilly, Otsuka, Ranbaxy, Sun & Wockhardt. Certified Trainer, NLP Practitioner & Psychoanalyst.</p>
+                        <div class="team-socials">
+                            <a href="https://wa.me/919712937207" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="https://linkedin.com/in/vivekjoshi70/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://facebook.com/vivek.joshi.7393264" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-photo">
+                        <img src="assets/images/manasi_pic.jpg" alt="Manasi">
+                    </div>
+                    <div class="team-info">
+                        <h3>Manasi</h3>
+                        <div class="role">Head, Learning & Development</div>
+                        <p class="bio">Sociology graduate from Hindu College with a Master's in Gender Studies. Gandhi Fellow with deep experience in women empowerment, education & gender parity. Delivered self-defence workshops across 35 schools impacting 1000+ girls.</p>
+                        <div class="team-socials">
+                            <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="https://facebook.com/manasijoshi.blue" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- ======== YOUTUBE ======== -->
+    <section class="yt-section" id="youtube">
+        <div class="container">
+            <span class="section-label reveal">Watch & Learn</span>
+            <h2 class="section-heading reveal">Our <span class="gradient-text">Video Channel</span></h2>
+            <p class="section-desc reveal">Training clips, expert talks, and insights from the Vivvan team.</p>
+            <div class="yt-wrapper reveal">
+                <iframe src="https://www.youtube.com/embed?listType=playlist&list=UUnRDgypdmWmTZXkrPOu_xrg" title="Vivvan Solutions YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
+    <!-- ======== CONTACT ======== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <span class="section-label reveal">Get In Touch</span>
+            <h2 class="section-heading reveal">Let's <span class="gradient-text">Talk Growth</span></h2>
+            <p class="section-desc reveal">Ready to transform your organization? We'd love to hear from you.</p>
 
+            <div class="contact-grid">
+                <div class="contact-left reveal">
+                    <h3>Start a Conversation</h3>
+                    <p>Whether you need a tailored training program, a one-off workshop, or ongoing consulting — we're here to help.</p>
 
+                    <div class="contact-item">
+                        <div class="c-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+919712937207">+91 97129 37207</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:vivvansolutions@gmail.com">vivvansolutions@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="c-icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <h4>Office</h4>
+                            <p>I.P. Extension, Delhi, 110092</p>
+                        </div>
+                    </div>
+                </div>
 
-<section class="mbr-section form4 cid-r6WIMYVXP1" id="form4-e" style="background-color: #ffffff">
+                <form class="contact-form reveal" id="contactForm">
+                    <h4>Send Us a Message</h4>
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="form-row">
+                        <textarea name="message" placeholder="Tell us about your training needs..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-
-
-
-    <div class="container align-items-center">
-        <div class="row justify-content-center">
-
-            <div class="col-md-6">
-                <h2 class="pb-3 align-left mbr-fonts-style display-2">
-                    <u>Contact Us</u>
-                </h2>
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
                 <div>
-                    <div class="icon-block pb-3">
-                        <span class="icon-block__icon">
-                            <span class="mbri-letter mbr-iconfont"></span>
-                        </span>
-                        <h4 class="icon-block__title align-left mbr-fonts-style display-5">
-                            Don't hesitate to contact us
-                        </h4>
-                    </div>
-                    <div class="icon-contacts pb-3">
-                        <h5 class="align-left mbr-fonts-style display-7">
-                            <u>For Collaborations</u>
-                        </h5>
-                        <p class="mbr-text align-left mbr-fonts-style display-7">
-                            Phone: +91 97129 37207<br></p>
-                    </div>
+                    <p>&copy; 2025 Vivvan Solutions. All rights reserved.</p>
+                    <small>* Testimonials as received on LinkedIn. Results may vary.</small>
                 </div>
-                <div data-form-type="formoid">
-                    <div data-form-alert="" hidden="">Thanks for filling out the form!</div>
-                    <form class="block mbr-form" action="https://mobirise.com/" method="post" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="l79uT5bdaA9NGvP/hMUKF1RuO/w7kJ4jDCz/e4W6a1uI2QuSib04VvS+MFCcjY6Tpb2HRvu0WoX4YXEe7evnNxbBu/yGxRMS8gmVWBYTPnOrLTcasNq0k6/SZAKZUYF5">
-                        <div class="row">
-                            <div class="col-md-6 multi-horizontal" data-for="name">
-                                <input type="text" class="form-control input" name="name" data-form-field="Name" placeholder="Your Name" required="" id="name-form4-e">
-                            </div>
-                            <div class="col-md-6 multi-horizontal" data-for="phone">
-                                <input type="text" class="form-control input" name="phone" data-form-field="Phone" placeholder="Phone" required="" id="phone-form4-e">
-                            </div>
-                            <div class="col-md-12" data-for="email">
-                                <input type="text" class="form-control input" name="email" data-form-field="Email" placeholder="Your Email" required="" id="email-form4-e">
-                            </div>
-                            <div class="col-md-12" data-for="message">
-                                <textarea class="form-control input" name="message" rows="3" data-form-field="Message" placeholder="Message" style="resize:none" id="message-form4-e"></textarea>
-                            </div>
-                            <div class="input-group-btn col-md-12" style="margin-top: 10px;">
-                                <button href="" type="submit" class="btn btn-primary btn-form display-4">SEND MESSAGE</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/vivekjoshi70/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919712937207" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<section class="cid-r6WTE4YjwJ" id="footer1-x">
+    <!-- ======== SCRIPTS ======== -->
+    <script>
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
 
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+        });
 
+        // Scroll reveal
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    <div class="mbr-overlay" style="background-color: rgb(60, 60, 60); opacity: 0.5;"></div>
+        // Hero carousel
+        const carouselImgs = document.querySelectorAll('#heroCarousel img');
+        let currentSlide = 0;
+        setInterval(() => {
+            carouselImgs[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % carouselImgs.length;
+            carouselImgs[currentSlide].classList.add('active');
+        }, 4000);
 
-    <div class="container">
-        <div class="media-container-row content text-white">
-            <div class="col-12 col-md-3">
-                <div class="media-wrap">
+        // Counter animation
+        const counterIO = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const el = e.target;
+                    const target = +el.dataset.target;
+                    let current = 0;
+                    const step = Math.max(1, Math.floor(target / 60));
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            el.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            el.textContent = current + '+';
+                        }
+                    }, 25);
+                    counterIO.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.number[data-target]').forEach(el => counterIO.observe(el));
 
-                    <img src="assets/images/logo2-1.png" alt="" title="">
-
-                </div>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Address
-                </h5>
-                <p class="mbr-text">S.P. Ring Road
-                    Bopal Circle
-                    Ahmedabad - 380058
-                    Gujarat
-                </p>
-                <p>
-                    I.P. Extension
-                    Delhi - 110092
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Contacts
-                </h5>
-                <p class="mbr-text">
-                    <a href="mailto:vivekjoshi@vivvansolutions.com">Click to Mail Us: vivekjoshi@vivvansolutions.com</a>
-                <p>Phone: +91 97129 37207</p>
-                <br><br></p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">&nbsp;</h5>
-                <p class="mbr-text">&nbsp;</p>
-            </div>
-        </div>
-        <div class="footer-lower">
-            <div class="media-container-row">
-                <div class="col-sm-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="media-container-row mbr-white">
-                <div class="col-sm-6 copyright">
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        © Copyright 2019 Vivvansolutions.com</p>
-                    <p>* Recommendations as received on linkedin.com</p>
-                    <!-- Start of CuterCounter Code -->
-                    <font size="4.8"> Visitor Count : </font><font size="4.5"> <a href="http://www.cutercounter.com/" target="_blank"><img src="http://www.cutercounter.com/hit.php?id=gvmepnkdk&amp;nd=7&amp;style=19" border="0" alt="hit counter"></a> </font>
-
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="social-list align-right">
-                    <div class="soc-item">
-
-                    </div>
-                    <div class="soc-item">
-                        <a href="https://www.linkedin.com/in/vivekjoshi70/" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social socicon-linkedin socicon" style=""></span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
-
-
-<script src="assets/web/assets/jquery/jquery.min.js"></script>
-<script src="assets/popper/popper.min.js"></script>
-<script src="assets/tether/tether.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/smoothscroll/smooth-scroll.js"></script>
-<script src="assets/dropdown/js/script.min.js"></script>
-<script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-<script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
-<script src="assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
-<script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
-<script src="assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
-<script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>
-<script src="assets/mbr-tabs/mbr-tabs.js"></script>
-<script src="assets/mbr-clients-slider/mbr-clients-slider.js"></script>
-<script src="assets/mbr-testimonials-slider/mbr-testimonials-slider.js"></script>
-<script src="assets/parallax/jarallax.min.js"></script>
-<script src="assets/theme/js/script.js"></script>
-<script src="assets/slidervideo/script.js"></script>
-<script src="assets/formoid/formoid.min.js"></script>
-
-
-<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i></i></a></div>
-<input name="animation" type="hidden">
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const f = this.elements;
+            const mailto = `mailto:vivvansolutions@gmail.com?subject=Inquiry from ${encodeURIComponent(f.name.value)}&body=Name: ${encodeURIComponent(f.name.value)}%0AEmail: ${encodeURIComponent(f.email.value)}%0APhone: ${encodeURIComponent(f.phone.value)}%0A%0A${encodeURIComponent(f.message.value)}`;
+            window.location.href = mailto;
+        });
+    </script>
 </body>
 </html>
