@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivvan Solutions | Corporate Training & Consulting</title>
-    <meta name="description" content="Vivvan Solutions — Transform your workforce with expert-led corporate training in sales, leadership, behavioral change, and more. 25+ years of experience, 3500+ professionals trained.">
+    <meta name="description"
+        content="Vivvan Solutions — Transform your workforce with expert-led corporate training in sales, leadership, behavioral change, and more. 25+ years of experience, 3500+ professionals trained.">
     <link rel="icon" href="assets/images/Screen Shot 2020-01-24 at 5.38.23 PM.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* ============ CSS RESET & VARIABLES ============ */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --bg: #08070e;
@@ -24,13 +34,15 @@
             --text: #eae8ff;
             --text-dim: #9892b5;
             --text-bright: #ffffff;
-            --border: rgba(255,255,255,0.06);
+            --border: rgba(255, 255, 255, 0.06);
             --radius: 16px;
             --font-head: 'Space Grotesk', sans-serif;
             --font-body: 'DM Sans', sans-serif;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: var(--font-body);
@@ -41,14 +53,37 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1,h2,h3,h4,h5,h6 { font-family: var(--font-head); color: var(--text-bright); line-height: 1.2; }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-head);
+            color: var(--text-bright);
+            line-height: 1.2;
+        }
 
-        a { color: var(--accent); text-decoration: none; transition: .3s; }
-        a:hover { color: var(--accent2); }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: .3s;
+        }
 
-        img { max-width: 100%; display: block; }
+        a:hover {
+            color: var(--accent2);
+        }
 
-        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
         /* Gradient text utility */
         .gradient-text {
@@ -59,7 +94,10 @@
         }
 
         /* Section spacing */
-        section { padding: 100px 0; position: relative; }
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
 
         .section-label {
             font-family: var(--font-head);
@@ -101,17 +139,21 @@
         /* ============ NAVIGATION ============ */
         .nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 999;
             padding: 18px 0;
             transition: .4s;
         }
+
         .nav.scrolled {
-            background: rgba(8,7,14,.85);
+            background: rgba(8, 7, 14, .85);
             backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid var(--border);
             padding: 12px 0;
         }
+
         .nav-inner {
             display: flex;
             justify-content: space-between;
@@ -120,24 +162,33 @@
             margin: 0 auto;
             padding: 0 24px;
         }
+
         .nav-brand {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
         }
-        .nav-brand img { width: 36px; height: 36px; object-fit: contain; }
+
+        .nav-brand img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
         .nav-brand-name {
             font-family: var(--font-head);
             font-weight: 700;
             font-size: 1.15rem;
             color: var(--text-bright);
         }
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 32px;
         }
+
         .nav-links a {
             color: var(--text-dim);
             font-size: .9rem;
@@ -145,7 +196,10 @@
             transition: .3s;
             text-decoration: none;
         }
-        .nav-links a:hover { color: var(--text-bright); }
+
+        .nav-links a:hover {
+            color: var(--text-bright);
+        }
 
         .nav-cta {
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
@@ -158,7 +212,11 @@
             cursor: pointer;
             transition: .3s;
         }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
 
         .hamburger {
             display: none;
@@ -168,6 +226,7 @@
             flex-direction: column;
             gap: 5px;
         }
+
         .hamburger span {
             display: block;
             width: 24px;
@@ -176,9 +235,18 @@
             border-radius: 2px;
             transition: .3s;
         }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
 
         /* ============ HERO ============ */
         .hero {
@@ -189,17 +257,24 @@
             overflow: hidden;
             padding-top: 80px;
         }
+
         .hero .glow-orb.orb1 {
-            width: 600px; height: 600px;
+            width: 600px;
+            height: 600px;
             background: var(--accent);
-            top: -200px; right: -200px;
+            top: -200px;
+            right: -200px;
         }
+
         .hero .glow-orb.orb2 {
-            width: 400px; height: 400px;
+            width: 400px;
+            height: 400px;
             background: var(--accent2);
-            bottom: -100px; left: -100px;
+            bottom: -100px;
+            left: -100px;
             opacity: .2;
         }
+
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -208,19 +283,27 @@
             position: relative;
             z-index: 1;
         }
+
         .hero-text h1 {
             font-size: clamp(2.6rem, 6vw, 4.2rem);
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.1;
         }
+
         .hero-text p {
             font-size: 1.15rem;
             color: var(--text-dim);
             margin-bottom: 36px;
             max-width: 480px;
         }
-        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
         .btn-fill {
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
             color: #fff;
@@ -237,10 +320,15 @@
             align-items: center;
             gap: 8px;
         }
-        .btn-fill:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--accent-glow); color: #fff; }
+
+        .btn-fill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px var(--accent-glow);
+            color: #fff;
+        }
 
         .btn-outline {
-            border: 1px solid rgba(255,255,255,.15);
+            border: 1px solid rgba(255, 255, 255, .15);
             color: var(--text);
             padding: 14px 36px;
             border-radius: 50px;
@@ -255,13 +343,19 @@
             align-items: center;
             gap: 8px;
         }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: rgba(108,92,231,.08); }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(108, 92, 231, .08);
+        }
 
         .hero-visual {
             position: relative;
             display: flex;
             justify-content: center;
         }
+
         .hero-image-wrapper {
             width: 100%;
             max-width: 480px;
@@ -269,43 +363,57 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--border);
-            box-shadow: 0 40px 80px rgba(0,0,0,.4);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .4);
             position: relative;
         }
+
         .hero-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             opacity: 0;
             transition: opacity 1s ease;
         }
+
         .hero-image-wrapper img.active {
             opacity: 1;
         }
+
         /* Floating stats on hero image */
         .hero-stat {
             position: absolute;
-            background: rgba(17,16,25,.85);
+            background: rgba(17, 16, 25, .85);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 16px 22px;
             z-index: 2;
         }
+
         .hero-stat .num {
             font-family: var(--font-head);
             font-size: 1.6rem;
             font-weight: 700;
             color: var(--accent2);
         }
+
         .hero-stat .label {
             font-size: .8rem;
             color: var(--text-dim);
         }
-        .hero-stat.s1 { bottom: -20px; left: -30px; }
-        .hero-stat.s2 { top: -20px; right: -30px; }
+
+        .hero-stat.s1 {
+            bottom: -20px;
+            left: -30px;
+        }
+
+        .hero-stat.s2 {
+            top: -20px;
+            right: -30px;
+        }
 
         /* ============ LOGO STRIP ============ */
         .logo-strip {
@@ -313,6 +421,7 @@
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
+
         .logo-strip p {
             text-align: center;
             color: var(--text-dim);
@@ -322,21 +431,40 @@
             font-weight: 500;
             margin-bottom: 32px;
         }
-        .logo-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 48px;
-            flex-wrap: wrap;
+
+        .logo-carousel {
+            overflow: hidden;
+            position: relative;
         }
-        .logo-row img {
+
+        .logo-track {
+            display: flex;
+            animation: scrollLogos 30s linear infinite;
+            width: max-content;
+        }
+
+        .logo-track:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-track img {
             height: 40px;
             object-fit: contain;
-            opacity: .45;
-            transition: .4s;
+            opacity: .5;
+            transition: opacity .4s;
             filter: brightness(0) invert(1);
+            margin: 0 40px;
+            flex-shrink: 0;
         }
-        .logo-row img:hover { opacity: .9; }
+
+        .logo-track img:hover {
+            opacity: .9;
+        }
+
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
         /* ============ SERVICES ============ */
         .services-grid {
@@ -344,6 +472,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
+
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -353,26 +482,35 @@
             position: relative;
             overflow: hidden;
         }
+
         .service-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
             background: linear-gradient(90deg, var(--accent), var(--accent2));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform .4s;
         }
-        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .service-card:hover {
             background: var(--bg-card-hover);
-            border-color: rgba(108,92,231,.3);
+            border-color: rgba(108, 92, 231, .3);
             transform: translateY(-6px);
         }
+
         .service-icon-wrap {
-            width: 52px; height: 52px;
+            width: 52px;
+            height: 52px;
             border-radius: 12px;
-            background: linear-gradient(135deg, rgba(108,92,231,.15), rgba(0,206,201,.1));
+            background: linear-gradient(135deg, rgba(108, 92, 231, .15), rgba(0, 206, 201, .1));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -380,14 +518,17 @@
             font-size: 1.3rem;
             color: var(--accent);
         }
+
         .service-card h3 {
             font-size: 1.2rem;
             margin-bottom: 14px;
             font-weight: 600;
         }
+
         .service-card ul {
             list-style: none;
         }
+
         .service-card ul li {
             color: var(--text-dim);
             font-size: .9rem;
@@ -395,12 +536,14 @@
             padding-left: 20px;
             position: relative;
         }
+
         .service-card ul li::before {
             content: '';
             position: absolute;
             left: 0;
             top: 13px;
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: var(--accent2);
         }
@@ -409,27 +552,32 @@
         .about-section {
             background: linear-gradient(180deg, var(--bg) 0%, #0d0c18 100%);
         }
+
         .about-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             margin-bottom: 48px;
         }
+
         .about-card {
-            background: linear-gradient(160deg, rgba(108,92,231,.08), rgba(0,206,201,.04));
+            background: linear-gradient(160deg, rgba(108, 92, 231, .08), rgba(0, 206, 201, .04));
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 40px 28px;
             text-align: center;
             transition: .4s;
         }
+
         .about-card:hover {
             border-color: var(--accent);
-            background: linear-gradient(160deg, rgba(108,92,231,.14), rgba(0,206,201,.08));
+            background: linear-gradient(160deg, rgba(108, 92, 231, .14), rgba(0, 206, 201, .08));
             transform: translateY(-6px);
         }
+
         .about-card .icon {
-            width: 64px; height: 64px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             display: flex;
@@ -439,8 +587,16 @@
             font-size: 1.5rem;
             color: #fff;
         }
-        .about-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-        .about-card p { color: var(--text-dim); font-size: .95rem; }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .about-card p {
+            color: var(--text-dim);
+            font-size: .95rem;
+        }
 
         .philosophy-block {
             max-width: 720px;
@@ -456,12 +612,16 @@
         }
 
         /* ============ VALUES ============ */
-        .values-section { background: var(--bg); }
+        .values-section {
+            background: var(--bg);
+        }
+
         .values-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
+
         .value-card {
             text-align: center;
             padding: 40px 20px;
@@ -470,17 +630,27 @@
             background: var(--bg-card);
             transition: .4s;
         }
+
         .value-card:hover {
             border-color: var(--accent);
             transform: translateY(-6px);
         }
+
         .value-card .v-icon {
             font-size: 2rem;
             margin-bottom: 16px;
             display: block;
         }
-        .value-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
-        .value-card p { color: var(--text-dim); font-size: .88rem; }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--text-dim);
+            font-size: .88rem;
+        }
 
         /* ============ STATS BANNER ============ */
         .stats-banner {
@@ -488,32 +658,42 @@
             background: linear-gradient(135deg, var(--accent), #8b5cf6, var(--accent2));
             position: relative;
         }
+
         .stats-row {
             display: flex;
             justify-content: center;
             gap: 80px;
             flex-wrap: wrap;
         }
-        .stat-item { text-align: center; }
+
+        .stat-item {
+            text-align: center;
+        }
+
         .stat-item .number {
             font-family: var(--font-head);
             font-size: 3.5rem;
             font-weight: 700;
             color: #fff;
         }
+
         .stat-item .s-label {
             font-size: 1rem;
-            color: rgba(255,255,255,.85);
+            color: rgba(255, 255, 255, .85);
             margin-top: 4px;
         }
 
         /* ============ TESTIMONIALS ============ */
-        .testimonials-section { background: var(--bg); }
+        .testimonials-section {
+            background: var(--bg);
+        }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
+
         .test-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -521,11 +701,18 @@
             padding: 36px;
             transition: .4s;
         }
+
         .test-card:hover {
-            border-color: rgba(108,92,231,.3);
+            border-color: rgba(108, 92, 231, .3);
             background: var(--bg-card-hover);
         }
-        .test-card .stars { color: #fbbf24; font-size: .85rem; margin-bottom: 16px; }
+
+        .test-card .stars {
+            color: #fbbf24;
+            font-size: .85rem;
+            margin-bottom: 16px;
+        }
+
         .test-card blockquote {
             color: var(--text-dim);
             font-size: .95rem;
@@ -533,23 +720,28 @@
             font-style: italic;
             margin-bottom: 24px;
         }
+
         .test-card .author {
             display: flex;
             align-items: center;
             gap: 14px;
         }
+
         .test-card .author img {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent);
         }
+
         .test-card .author-info .name {
             font-family: var(--font-head);
             font-weight: 600;
             color: var(--text-bright);
             font-size: .95rem;
         }
+
         .test-card .author-info .role {
             font-size: .8rem;
             color: var(--text-dim);
@@ -559,12 +751,13 @@
         .team-section {
             background: linear-gradient(180deg, var(--bg), #0d0c18);
         }
+
         .team-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
         }
+
         .team-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -572,10 +765,13 @@
             overflow: hidden;
             transition: .4s;
             text-align: center;
-            max-width: 360px;
-            width: 100%;
         }
-        .team-card:hover { border-color: rgba(108,92,231,.3); transform: translateY(-6px); }
+
+        .team-card:hover {
+            border-color: rgba(108, 92, 231, .3);
+            transform: translateY(-6px);
+        }
+
         .team-photo {
             width: 120px;
             height: 120px;
@@ -584,23 +780,34 @@
             margin: 32px auto 0;
             border: 3px solid var(--accent);
         }
+
         .team-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: .4s;
         }
-        .team-card:hover .team-photo img { transform: scale(1.1); }
+
+        .team-card:hover .team-photo img {
+            transform: scale(1.1);
+        }
+
         .team-info {
             padding: 20px 28px 28px;
         }
-        .team-info h3 { font-size: 1.4rem; margin-bottom: 4px; }
+
+        .team-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
         .team-info .role {
             color: var(--accent);
             font-weight: 600;
             font-size: .9rem;
             margin-bottom: 16px;
         }
+
         .team-info .bio {
             color: var(--text-dim);
             font-size: .9rem;
@@ -608,9 +815,16 @@
             margin-bottom: 20px;
             text-align: left;
         }
-        .team-socials { display: flex; gap: 12px; justify-content: center; }
+
+        .team-socials {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
         .team-socials a {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 1px solid var(--border);
             display: flex;
@@ -620,6 +834,7 @@
             font-size: .9rem;
             transition: .3s;
         }
+
         .team-socials a:hover {
             background: var(--accent);
             border-color: var(--accent);
@@ -627,16 +842,20 @@
         }
 
         /* ============ YOUTUBE ============ */
-        .yt-section { background: var(--bg); }
+        .yt-section {
+            background: var(--bg);
+        }
+
         .yt-wrapper {
             border-radius: var(--radius);
             overflow: hidden;
             border: 1px solid var(--border);
-            box-shadow: 0 40px 80px rgba(0,0,0,.3);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .3);
             aspect-ratio: 16/9;
             max-width: 800px;
             margin: 0 auto;
         }
+
         .yt-wrapper iframe {
             width: 100%;
             height: 100%;
@@ -648,31 +867,37 @@
         .contact-section {
             background: linear-gradient(180deg, #0d0c18, var(--bg));
         }
+
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 48px;
             align-items: start;
         }
+
         .contact-left h3 {
             font-size: 2rem;
             margin-bottom: 12px;
         }
-        .contact-left > p {
+
+        .contact-left>p {
             color: var(--text-dim);
             margin-bottom: 36px;
             font-size: 1.05rem;
         }
+
         .contact-item {
             display: flex;
             gap: 16px;
             margin-bottom: 28px;
             align-items: flex-start;
         }
+
         .contact-item .c-icon {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
-            background: linear-gradient(135deg, rgba(108,92,231,.15), rgba(0,206,201,.1));
+            background: linear-gradient(135deg, rgba(108, 92, 231, .15), rgba(0, 206, 201, .1));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -680,11 +905,14 @@
             color: var(--accent);
             flex-shrink: 0;
         }
+
         .contact-item h4 {
             font-size: 1rem;
             margin-bottom: 4px;
         }
-        .contact-item p, .contact-item a {
+
+        .contact-item p,
+        .contact-item a {
             color: var(--text-dim);
             font-size: .95rem;
         }
@@ -695,30 +923,47 @@
             border-radius: var(--radius);
             padding: 40px;
         }
+
         .contact-form h4 {
             font-size: 1.3rem;
             margin-bottom: 28px;
         }
-        .form-row { margin-bottom: 20px; }
-        .form-row input, .form-row textarea {
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .form-row input,
+        .form-row textarea {
             width: 100%;
             padding: 14px 18px;
             border-radius: 10px;
             border: 1px solid var(--border);
-            background: rgba(255,255,255,.03);
+            background: rgba(255, 255, 255, .03);
             color: var(--text);
             font-family: var(--font-body);
             font-size: .95rem;
             transition: .3s;
             outline: none;
         }
-        .form-row input:focus, .form-row textarea:focus {
+
+        .form-row input:focus,
+        .form-row textarea:focus {
             border-color: var(--accent);
-            background: rgba(108,92,231,.05);
-            box-shadow: 0 0 0 3px rgba(108,92,231,.12);
+            background: rgba(108, 92, 231, .05);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, .12);
         }
-        .form-row input::placeholder, .form-row textarea::placeholder { color: var(--text-dim); opacity: .6; }
-        .form-row textarea { resize: vertical; min-height: 120px; }
+
+        .form-row input::placeholder,
+        .form-row textarea::placeholder {
+            color: var(--text-dim);
+            opacity: .6;
+        }
+
+        .form-row textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
 
         .form-submit {
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
@@ -733,7 +978,11 @@
             transition: .3s;
             width: 100%;
         }
-        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px var(--accent-glow); }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
 
         /* ============ FOOTER ============ */
         footer {
@@ -741,6 +990,7 @@
             border-top: 1px solid var(--border);
             background: var(--bg);
         }
+
         .footer-inner {
             display: flex;
             justify-content: space-between;
@@ -748,11 +998,26 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-        .footer-inner p { color: var(--text-dim); font-size: .85rem; }
-        .footer-inner small { color: var(--text-dim); font-size: .75rem; opacity: .6; }
-        .footer-social { display: flex; gap: 12px; }
+
+        .footer-inner p {
+            color: var(--text-dim);
+            font-size: .85rem;
+        }
+
+        .footer-inner small {
+            color: var(--text-dim);
+            font-size: .75rem;
+            opacity: .6;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
         .footer-social a {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 1px solid var(--border);
             display: flex;
@@ -761,7 +1026,12 @@
             color: var(--text-dim);
             transition: .3s;
         }
-        .footer-social a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
 
         /* ============ REVEAL ANIMATION ============ */
         .reveal {
@@ -769,6 +1039,7 @@
             transform: translateY(30px);
             transition: opacity .7s ease, transform .7s ease;
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
@@ -776,18 +1047,27 @@
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .about-grid { grid-template-columns: repeat(3, 1fr); }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            section { padding: 72px 0; }
+            section {
+                padding: 72px 0;
+            }
 
             .nav-links {
                 position: fixed;
-                top: 0; left: 0;
-                width: 100%; height: 100vh;
-                background: rgba(8,7,14,.97);
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(8, 7, 14, .97);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
@@ -797,46 +1077,113 @@
                 pointer-events: none;
                 transition: .4s;
             }
-            .nav-links.open { opacity: 1; pointer-events: all; }
-            .nav-links a { font-size: 1.3rem; }
-            .hamburger { display: flex; z-index: 1001; }
+
+            .nav-links.open {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
 
             .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 40px;
             }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .hero-btns { justify-content: center; }
-            .hero-stat.s1 { left: 10px; bottom: -10px; }
-            .hero-stat.s2 { right: 10px; top: -10px; }
 
-            .services-grid { grid-template-columns: 1fr; }
-            .about-grid { grid-template-columns: 1fr; }
-            .values-grid { grid-template-columns: repeat(2, 1fr); }
-            .testimonials-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-            .team-card { max-width: 320px; }
+            .hero-btns {
+                justify-content: center;
+            }
 
-            .stats-row { gap: 40px; }
-            .stat-item .number { font-size: 2.5rem; }
+            .hero-stat.s1 {
+                left: 10px;
+                bottom: -10px;
+            }
 
-            .logo-row { gap: 28px; }
-            .logo-row img { height: 28px; }
+            .hero-stat.s2 {
+                right: 10px;
+                top: -10px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .stats-row {
+                gap: 40px;
+            }
+
+            .stat-item .number {
+                font-size: 2.5rem;
+            }
+
+            .logo-row {
+                gap: 28px;
+            }
+
+            .logo-row img {
+                height: 28px;
+            }
         }
 
         @media (max-width: 480px) {
-            .values-grid { grid-template-columns: 1fr; }
-            .hero-text h1 { font-size: 2rem; }
-            .hero-stat { display: none; }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stat {
+                display: none;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .reveal { opacity: 1; transform: none; transition: none; }
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- ======== NAVIGATION ======== -->
@@ -867,9 +1214,13 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text">
-                    <p style="color:var(--accent); font-weight:600; font-size:.9rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Corporate Training & Consulting</p>
-                    <h1>We bring the <span class="gradient-text">core</span> to the <span class="gradient-text">fore</span>.</h1>
-                    <p>Transform your workforce through expert-led training in sales excellence, leadership development, behavioral change, and organizational growth. 25+ years of proven results.</p>
+                    <p
+                        style="color:var(--accent); font-weight:600; font-size:.9rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">
+                        Corporate Training & Consulting</p>
+                    <h1>We bring the <span class="gradient-text">core</span> to the <span
+                            class="gradient-text">fore</span>.</h1>
+                    <p>Transform your workforce through expert-led training in sales excellence, leadership development,
+                        behavioral change, and organizational growth. 25+ years of proven results.</p>
                     <div class="hero-btns">
                         <a href="#contact" class="btn-fill"><i class="fas fa-arrow-right"></i> Get Started</a>
                         <a href="#services" class="btn-outline"><i class="fas fa-grid"></i> Our Services</a>
@@ -881,14 +1232,17 @@
                         <img src="assets/images/slider-3-2000x1500.jpg" alt="Bringing ideas to life">
                         <img src="assets/images/slider-4-2000x1335.jpg" alt="Expanding horizons">
                         <img src="assets/images/slider-5-2000x1335.jpg" alt="Building a better future">
-                        <img src="assets/images/slider-6-2000x1335.jpg" alt="Our expertise, your growth">
+                        <img src="assets/images/workshop1.jpeg" alt="Interactive workshop session">
+                        <img src="assets/images/workshop2.jpeg" alt="Leadership training event">
+                        <img src="assets/images/workshop3.jpeg" alt="Corporate training seminar">
+                        <img src="assets/images/workshop4.jpeg" alt="Team engagement workshop">
                     </div>
                     <div class="hero-stat s1">
-                        <div class="num">250+</div>
+                        <div class="num">2500+</div>
                         <div class="label">Talks Delivered</div>
                     </div>
                     <div class="hero-stat s2">
-                        <div class="num">3500+</div>
+                        <div class="num">35000+</div>
                         <div class="label">Professionals Trained</div>
                     </div>
                 </div>
@@ -900,13 +1254,33 @@
     <section class="logo-strip" id="clients">
         <div class="container">
             <p>Trusted by industry leaders</p>
-            <div class="logo-row">
-                <img src="assets/images/sun-pharma-logo-sun-pharmaceutical-533x700.png" alt="Sun Pharma">
-                <img src="assets/images/pngpix-com-eli-lilly-logo-png-transparent-500x300.png" alt="Eli Lilly">
-                <img src="assets/images/reliance_logo.png" alt="Reliance">
-                <img src="assets/images/wockhardt-logo-2-1404x583.png" alt="Wockhardt">
-                <img src="assets/images/thomascook.png" alt="Thomas Cook">
-                <img src="assets/images/logo-5-404x88.png" alt="Client">
+            <div class="logo-carousel">
+                <div class="logo-track">
+                    <!-- Original set -->
+                    <img src="assets/images/sun-pharma-logo-sun-pharmaceutical-533x700.png" alt="Sun Pharma">
+                    <img src="assets/images/gillette-logo.svg" alt="Gillette">
+                    <img src="assets/images/pngpix-com-eli-lilly-logo-png-transparent-500x300.png" alt="Eli Lilly">
+                    <img src="assets/images/lg-logo.svg" alt="LG">
+                    <img src="assets/images/reliance_logo.png" alt="Reliance">
+                    <img src="assets/images/abbott-logo.svg" alt="Abbott">
+                    <img src="assets/images/wockhardt-logo-2-1404x583.png" alt="Wockhardt">
+                    <img src="assets/images/ds-group-logo.svg" alt="DS Group">
+                    <img src="assets/images/thomascook.png" alt="Thomas Cook">
+                    <img src="assets/images/sbi-caps-logo.svg" alt="SBI CAPS">
+                    <img src="assets/images/bisleri-logo.svg" alt="Bisleri">
+                    <!-- Duplicate set for seamless loop -->
+                    <img src="assets/images/sun-pharma-logo-sun-pharmaceutical-533x700.png" alt="Sun Pharma">
+                    <img src="assets/images/gillette-logo.svg" alt="Gillette">
+                    <img src="assets/images/pngpix-com-eli-lilly-logo-png-transparent-500x300.png" alt="Eli Lilly">
+                    <img src="assets/images/lg-logo.svg" alt="LG">
+                    <img src="assets/images/reliance_logo.png" alt="Reliance">
+                    <img src="assets/images/abbott-logo.svg" alt="Abbott">
+                    <img src="assets/images/wockhardt-logo-2-1404x583.png" alt="Wockhardt">
+                    <img src="assets/images/ds-group-logo.svg" alt="DS Group">
+                    <img src="assets/images/thomascook.png" alt="Thomas Cook">
+                    <img src="assets/images/sbi-caps-logo.svg" alt="SBI CAPS">
+                    <img src="assets/images/bisleri-logo.svg" alt="Bisleri">
+                </div>
             </div>
         </div>
     </section>
@@ -916,7 +1290,8 @@
         <div class="container">
             <span class="section-label reveal">What We Do</span>
             <h2 class="section-heading reveal">Services Built for <span class="gradient-text">Real Impact</span></h2>
-            <p class="section-desc reveal">From sales mastery to psychological resilience, our programs are designed to create measurable, lasting change in your organization.</p>
+            <p class="section-desc reveal">From sales mastery to psychological resilience, our programs are designed to
+                create measurable, lasting change in your organization.</p>
 
             <div class="services-grid">
                 <div class="service-card reveal">
@@ -1000,28 +1375,35 @@
         <div class="container">
             <span class="section-label reveal">Our Philosophy</span>
             <h2 class="section-heading reveal">The <span class="gradient-text">Holy Trinity</span> of Growth</h2>
-            <p class="section-desc reveal">True excellence emerges when intellect, emotion, and purpose work in harmony. We develop the whole individual.</p>
+            <p class="section-desc reveal">True excellence emerges when intellect, emotion, and purpose work in harmony.
+                We develop the whole individual.</p>
 
             <div class="about-grid">
                 <div class="about-card reveal">
                     <div class="icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>IQ: Intelligence</h3>
-                    <p>Cognitive sharpness, analytical thinking, and the technical competence that drives professional excellence and sound decision-making.</p>
+                    <h3>IQ: Intelligence Quotient</h3>
+                    <p>Cognitive sharpness, analytical thinking, and the technical competence that drives professional
+                        excellence and sound decision-making.</p>
                 </div>
                 <div class="about-card reveal">
                     <div class="icon"><i class="fas fa-heart"></i></div>
-                    <h3>EQ: Emotion</h3>
-                    <p>Self-awareness, empathy, and emotional intelligence that foster meaningful human connections and high-performing team dynamics.</p>
+                    <h3>EQ: Emotional Quotient</h3>
+                    <p>Self-awareness, empathy, and emotional intelligence that foster meaningful human connections and
+                        high-performing team dynamics.</p>
                 </div>
                 <div class="about-card reveal">
                     <div class="icon"><i class="fas fa-sun"></i></div>
-                    <h3>SQ: Spirit</h3>
-                    <p>Purpose, values alignment, and a deeper sense of meaning that inspires authentic leadership and lasting, sustainable impact.</p>
+                    <h3>SQ: Spiritual Quotient</h3>
+                    <p>Purpose, values alignment, and a deeper sense of meaning that inspires authentic leadership and
+                        lasting, sustainable impact.</p>
                 </div>
             </div>
 
             <div class="philosophy-block reveal">
-                We operate on the principle of <strong style="color:var(--accent)">Kaizen</strong> — continuous improvement. We are a group of committed trainers with a mission to ensure that tomorrow is always better than today. Our programs develop intellectually sharp, emotionally intelligent, and purpose-driven professionals who become catalysts for organizational growth.
+                We operate on the principle of <strong style="color:var(--accent)">Kaizen</strong> — continuous
+                improvement. We are a group of committed trainers with a mission to ensure that tomorrow is always
+                better than today. Our programs develop intellectually sharp, emotionally intelligent, and
+                purpose-driven professionals who become catalysts for organizational growth.
             </div>
         </div>
     </section>
@@ -1063,20 +1445,16 @@
         <div class="container">
             <div class="stats-row">
                 <div class="stat-item">
-                    <div class="number" data-target="250">0+</div>
+                    <div class="number" data-target="2500">0+</div>
                     <div class="s-label">Talks Delivered</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number" data-target="3500">0+</div>
+                    <div class="number" data-target="35000">0+</div>
                     <div class="s-label">Professionals Trained</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number" data-target="25">0+</div>
+                    <div class="number" data-target="35">0+</div>
                     <div class="s-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number" data-target="2">0</div>
-                    <div class="s-label">Locations</div>
                 </div>
             </div>
         </div>
@@ -1091,8 +1469,11 @@
 
             <div class="testimonials-grid">
                 <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Vivek has the knack of developing well-knit teams. He is an excellent coach and mentor with outstanding communication skills. A terrific asset to any organization looking to build high-performance culture."</blockquote>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"Vivek has the knack of developing well-knit teams. He is an excellent coach and mentor
+                        with outstanding communication skills. A terrific asset to any organization looking to build
+                        high-performance culture."</blockquote>
                     <div class="author">
                         <img src="assets/images/face3-400x400.jpg" alt="Shiva Kumar">
                         <div class="author-info">
@@ -1102,8 +1483,11 @@
                     </div>
                 </div>
                 <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"One of the few sales managers with incredibly strong sales orientation and business acumen. Known for intelligent conversations and value-add wherever needed. A warm person, always consistent in approach."</blockquote>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"One of the few sales managers with incredibly strong sales orientation and business
+                        acumen. Known for intelligent conversations and value-add wherever needed. A warm person, always
+                        consistent in approach."</blockquote>
                     <div class="author">
                         <img src="assets/images/face2-200x200.jpg" alt="Abdul Sukkur">
                         <div class="author-info">
@@ -1113,8 +1497,11 @@
                     </div>
                 </div>
                 <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"A brilliant senior sales and marketing professional. Extremely enthusiastic — his energy is infectious, makes learning fun and easy to remember. His presentation style is open, engaging, and thorough."</blockquote>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"A brilliant senior sales and marketing professional. Extremely enthusiastic — his
+                        energy is infectious, makes learning fun and easy to remember. His presentation style is open,
+                        engaging, and thorough."</blockquote>
                     <div class="author">
                         <img src="assets/images/face1-400x400.jpg" alt="J K Singha">
                         <div class="author-info">
@@ -1124,8 +1511,11 @@
                     </div>
                 </div>
                 <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"A people leader and astute business manager. Sharp, result-oriented, and focused. Outstanding understanding of business drivers. He drives execution of marketing strategy to the core and delivers consistently."</blockquote>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"A people leader and astute business manager. Sharp, result-oriented, and focused.
+                        Outstanding understanding of business drivers. He drives execution of marketing strategy to the
+                        core and delivers consistently."</blockquote>
                     <div class="author">
                         <img src="assets/images/face4-400x400.jpg" alt="Ashiesh Kothaari">
                         <div class="author-info">
@@ -1153,26 +1543,37 @@
                     <div class="team-info">
                         <h3>Vivek Joshi</h3>
                         <div class="role">Founder & CEO</div>
-                        <p class="bio">25+ years across Sales, Marketing, HR & L&D. Backgrounds in Marketing, Law & Psychology. Worked with Eli Lilly, Otsuka, Ranbaxy, Sun & Wockhardt. Certified Trainer, NLP Practitioner & Psychoanalyst.</p>
+                        <p class="bio">Over 30 years in Pharmaceutical & Healthcare, spanning Sales, Marketing, HR, L&D and Business Leadership. Senior roles with Otsuka, Sun Pharma, Ranbaxy, Eli Lilly, Panacea Biotec, Wockhardt, Bharat Serums & Schwabe. Facilitated learning journeys for Abbott, Unicharm, Manitou, Zydus, DS Group, Bisleri, Adani and others.</p>
                         <div class="team-socials">
                             <a href="https://wa.me/919712937207" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/vivekjoshi70/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://facebook.com/vivek.joshi.7393264" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="team-card reveal">
                     <div class="team-photo">
-                        <img src="assets/images/manasi_pic.jpg" alt="Manasi">
+                        <img src="assets/images/ratnesh.jpeg" alt="Ratnesh Joshi">
                     </div>
                     <div class="team-info">
-                        <h3>Manasi</h3>
-                        <div class="role">Head, Learning & Development</div>
-                        <p class="bio">Sociology graduate from Hindu College with a Master's in Gender Studies. Gandhi Fellow with deep experience in women empowerment, education & gender parity. Delivered self-defence workshops across 35 schools impacting 1000+ girls.</p>
+                        <h3>Ratnesh Joshi</h3>
+                        <div class="role">Healthcare & L&D Specialist</div>
+                        <p class="bio">Healthcare specialist with exposure to Indian & international markets. Learning & capability-building specialist with 30+ years of experience in Sales & Marketing. An expert in the Cardiology segment, medicines, devices & procedures.</p>
                         <div class="team-socials">
                             <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                            <a href="https://facebook.com/manasijoshi.blue" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-photo">
+                        <img src="assets/images/hitesh.jpeg" alt="Hitesh Mitra">
+                    </div>
+                    <div class="team-info">
+                        <h3>Hitesh Mitra</h3>
+                        <div class="role">Sales & Marketing Leader</div>
+                        <p class="bio">Over 30 years of experience in Sales & Marketing with 20+ years in leadership roles across domestic & multinational organizations. Expert with multi-specialty experience and cross-functional expertise.</p>
+                        <div class="team-socials">
+                            <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1187,7 +1588,10 @@
             <h2 class="section-heading reveal">Our <span class="gradient-text">Video Channel</span></h2>
             <p class="section-desc reveal">Training clips, expert talks, and insights from the Vivvan team.</p>
             <div class="yt-wrapper reveal">
-                <iframe src="https://www.youtube.com/embed?listType=playlist&list=UUnRDgypdmWmTZXkrPOu_xrg" title="Vivvan Solutions YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed?listType=playlist&list=UUnRDgypdmWmTZXkrPOu_xrg"
+                    title="Vivvan Solutions YouTube"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -1202,7 +1606,8 @@
             <div class="contact-grid">
                 <div class="contact-left reveal">
                     <h3>Start a Conversation</h3>
-                    <p>Whether you need a tailored training program, a one-off workshop, or ongoing consulting — we're here to help.</p>
+                    <p>Whether you need a tailored training program, a one-off workshop, or ongoing consulting — we're
+                        here to help.</p>
 
                     <div class="contact-item">
                         <div class="c-icon"><i class="fas fa-phone"></i></div>
@@ -1256,8 +1661,10 @@
                     <small>* Testimonials as received on LinkedIn. Results may vary.</small>
                 </div>
                 <div class="footer-social">
-                    <a href="https://linkedin.com/in/vivekjoshi70/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/919712937207" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://linkedin.com/in/vivekjoshi70/" target="_blank" title="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919712937207" target="_blank" title="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
                     <a href="mailto:vivvansolutions@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
@@ -1329,7 +1736,7 @@
         document.querySelectorAll('.number[data-target]').forEach(el => counterIO.observe(el));
 
         // Contact form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const f = this.elements;
             const mailto = `mailto:vivvansolutions@gmail.com?subject=Inquiry from ${encodeURIComponent(f.name.value)}&body=Name: ${encodeURIComponent(f.name.value)}%0AEmail: ${encodeURIComponent(f.email.value)}%0APhone: ${encodeURIComponent(f.phone.value)}%0A%0A${encodeURIComponent(f.message.value)}`;
@@ -1337,4 +1744,5 @@
         });
     </script>
 </body>
+
 </html>
