@@ -469,7 +469,8 @@
         /* ============ SERVICES ============ */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 1fr;
             gap: 24px;
         }
 
@@ -688,10 +689,28 @@
             background: var(--bg);
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .testimonials-carousel {
+            overflow: hidden;
+            position: relative;
+            margin-top: 32px;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .testimonials-track {
+            display: flex;
             gap: 24px;
+            width: max-content;
+            animation: scrollTestimonials 60s linear infinite;
+        }
+
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollTestimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .test-card {
@@ -700,6 +719,24 @@
             border-radius: var(--radius);
             padding: 36px;
             transition: .4s;
+            width: 460px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .test-card .author .avatar-blank {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: linear-gradient(135deg, rgba(108, 92, 231, .25), rgba(0, 206, 201, .15));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent2);
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .test-card:hover {
@@ -719,6 +756,7 @@
             line-height: 1.8;
             font-style: italic;
             margin-bottom: 24px;
+            flex: 1;
         }
 
         .test-card .author {
@@ -765,6 +803,8 @@
             overflow: hidden;
             transition: .4s;
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .team-card:hover {
@@ -794,6 +834,9 @@
 
         .team-info {
             padding: 20px 28px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .team-info h3 {
@@ -820,6 +863,7 @@
             display: flex;
             gap: 12px;
             justify-content: center;
+            margin-top: auto;
         }
 
         .team-socials a {
@@ -1049,6 +1093,7 @@
         @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: auto;
             }
 
             .about-grid {
@@ -1129,8 +1174,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .test-card {
+                width: 320px;
+                padding: 28px;
             }
 
             .contact-grid {
@@ -1331,27 +1377,28 @@
                     </ul>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Campus to Corporate</h3>
+                    <div class="service-icon-wrap"><i class="fas fa-briefcase-medical"></i></div>
+                    <h3>Business Consulting for Pharmaceutical Industry</h3>
                     <ul>
-                        <li>Professional Communication</li>
-                        <li>First Impression Mastery</li>
-                        <li>Corporate Conduct & Etiquette</li>
-                        <li>Behavioral Modeling</li>
-                        <li>Workplace Readiness</li>
-                        <li>Career Launchpad Skills</li>
+                        <li>Driving Productivity through people</li>
+                        <li>Data-based, people centric approach that delivers consistent growth</li>
+                        <li>Structured sales process</li>
+                        <li>Creating Brands that demand customer loyalty</li>
+                        <li>Strategic communication for sustainable competitive advantage</li>
                     </ul>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon-wrap"><i class="fas fa-shield-halved"></i></div>
-                    <h3>POSH & Gender Sensitization</h3>
+                    <h3>PoSH & Gender Sensitization</h3>
                     <ul>
-                        <li>Gender Awareness Training</li>
-                        <li>Diversity & Inclusion</li>
-                        <li>Stereotype Elimination</li>
-                        <li>SHWWP Act 2013 Compliance</li>
-                        <li>POSH Policy Drafting</li>
-                        <li>Safe Workplace Culture</li>
+                        <li>Draft & Review PoSH Policy for your organization</li>
+                        <li>Conduct Awareness & Sensitization sessions for all employees</li>
+                        <li>IC – Internal Committee formation</li>
+                        <li>Provide Experienced External Member for your IC</li>
+                        <li>Conduct Orientation Sessions for all IC members</li>
+                        <li>Conduct enquiry in case of Sexual Harassment complaint</li>
+                        <li>Provide Posters, Training Materials & required templates</li>
+                        <li>Assistance in Annual Report Filing for PoSH Compliance</li>
                     </ul>
                 </div>
                 <div class="service-card reveal">
@@ -1467,60 +1514,184 @@
             <h2 class="section-heading reveal">What Our <span class="gradient-text">Clients Say</span></h2>
             <p class="section-desc reveal">Real feedback from leaders who've experienced the Vivvan difference.</p>
 
-            <div class="testimonials-grid">
-                <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Vivek has the knack of developing well-knit teams. He is an excellent coach and mentor
-                        with outstanding communication skills. A terrific asset to any organization looking to build
-                        high-performance culture."</blockquote>
-                    <div class="author">
-                        <img src="assets/images/face3-400x400.jpg" alt="Shiva Kumar">
-                        <div class="author-info">
-                            <div class="name">Shiva Kumar</div>
-                            <div class="role">Associate Vice President, Biocon</div>
+            <div class="testimonials-carousel reveal">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Set 1 -->
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Vivek has the knack of developing well-knit teams. He is an excellent coach and mentor with outstanding communication skills. A terrific asset to any organization looking to build high-performance culture."</blockquote>
+                        <div class="author">
+                            <img src="assets/images/face3-400x400.jpg" alt="Shiva Kumar">
+                            <div class="author-info">
+                                <div class="name">Shiva Kumar</div>
+                                <div class="role">Associate Vice President, Biocon</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"One of the few sales managers with incredibly strong sales orientation and business
-                        acumen. Known for intelligent conversations and value-add wherever needed. A warm person, always
-                        consistent in approach."</blockquote>
-                    <div class="author">
-                        <img src="assets/images/face2-200x200.jpg" alt="Abdul Sukkur">
-                        <div class="author-info">
-                            <div class="name">Abdul Sukkur</div>
-                            <div class="role">VP Consulting, AIOCD Pharmasofttech AWACS</div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"One of the few sales managers with incredibly strong sales orientation and business acumen. Known for intelligent conversations and value-add wherever needed. A warm person, always consistent in approach."</blockquote>
+                        <div class="author">
+                            <img src="assets/images/face2-200x200.jpg" alt="Abdul Sukkur">
+                            <div class="author-info">
+                                <div class="name">Abdul Sukkur</div>
+                                <div class="role">VP Consulting, AIOCD Pharmasofttech AWACS</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"A brilliant senior sales and marketing professional. Extremely enthusiastic — his
-                        energy is infectious, makes learning fun and easy to remember. His presentation style is open,
-                        engaging, and thorough."</blockquote>
-                    <div class="author">
-                        <img src="assets/images/face1-400x400.jpg" alt="J K Singha">
-                        <div class="author-info">
-                            <div class="name">J K Singha</div>
-                            <div class="role">Founder & CMD, HealWell24</div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"A brilliant senior sales and marketing professional. Extremely enthusiastic — his energy is infectious, makes learning fun and easy to remember. His presentation style is open, engaging, and thorough."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">J K Singha</div>
+                                <div class="role">Founder & CMD, HealWell24</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="test-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"A people leader and astute business manager. Sharp, result-oriented, and focused.
-                        Outstanding understanding of business drivers. He drives execution of marketing strategy to the
-                        core and delivers consistently."</blockquote>
-                    <div class="author">
-                        <img src="assets/images/face4-400x400.jpg" alt="Ashiesh Kothaari">
-                        <div class="author-info">
-                            <div class="name">Ashiesh Kothaari</div>
-                            <div class="role">Commercial Leader</div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"A people leader and astute business manager. Sharp, result-oriented, and focused. Outstanding understanding of business drivers. He drives execution of marketing strategy to the core and delivers consistently."</blockquote>
+                        <div class="author">
+                            <img src="assets/images/face4-400x400.jpg" alt="Ashiesh Kothaari">
+                            <div class="author-info">
+                                <div class="name">Ashiesh Kothaari</div>
+                                <div class="role">Commercial Leader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Unicharm India has been doing training with Mr. Vivek for quite a long time now. He has a great presentation style with lots of opportunities to ask questions and talk about real life examples. Enthusiastic and engaging — I would really recommend him for sales training specifically."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Akansha Prasad</div>
+                                <div class="role">Learning & Development – HR, Unicharm India Pvt. Ltd.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Vivek comes across as a wonderful professional with lots of energy and enthusiasm in the training sessions. His way of connecting with the audience is awesome. The clarity of thought, the articulation, the engagement with the target audience is really good. He is an amazing person with a human touch."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Pankaj Ailawadi</div>
+                                <div class="role">Human Resources</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"My highest recommendation to Mr. Vivek Joshi for the outstanding sales training and facilitation delivered to our employees. The sessions were highly engaging, well-structured, and tailored to our team's needs. His deep expertise in sales strategies, coupled with the ability to communicate complex concepts clearly, greatly enhanced the learning experience."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Apoorva Sharma</div>
+                                <div class="role">Assistant Manager (HR-Training)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"I had the opportunity to work with Vivek Joshi during an Oncology Leadership Development Program, where he coached participants on public speaking in Bangladesh. His sessions were engaging, practical, and highly impactful — helping participants build confidence and communicate with clarity. A skilled, professional trainer."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Dr. Jakaria Hossain</div>
+                                <div class="role">Senior Manager, Medical Affairs</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Vivek has the knack of developing well-knit teams. He is an excellent coach and mentor with outstanding communication skills. A terrific asset to any organization looking to build high-performance culture."</blockquote>
+                        <div class="author">
+                            <img src="assets/images/face3-400x400.jpg" alt="">
+                            <div class="author-info">
+                                <div class="name">Shiva Kumar</div>
+                                <div class="role">Associate Vice President, Biocon</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"One of the few sales managers with incredibly strong sales orientation and business acumen. Known for intelligent conversations and value-add wherever needed. A warm person, always consistent in approach."</blockquote>
+                        <div class="author">
+                            <img src="assets/images/face2-200x200.jpg" alt="">
+                            <div class="author-info">
+                                <div class="name">Abdul Sukkur</div>
+                                <div class="role">VP Consulting, AIOCD Pharmasofttech AWACS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"A brilliant senior sales and marketing professional. Extremely enthusiastic — his energy is infectious, makes learning fun and easy to remember. His presentation style is open, engaging, and thorough."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">J K Singha</div>
+                                <div class="role">Founder & CMD, HealWell24</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"A people leader and astute business manager. Sharp, result-oriented, and focused. Outstanding understanding of business drivers. He drives execution of marketing strategy to the core and delivers consistently."</blockquote>
+                        <div class="author">
+                            <img src="assets/images/face4-400x400.jpg" alt="">
+                            <div class="author-info">
+                                <div class="name">Ashiesh Kothaari</div>
+                                <div class="role">Commercial Leader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Unicharm India has been doing training with Mr. Vivek for quite a long time now. He has a great presentation style with lots of opportunities to ask questions and talk about real life examples. Enthusiastic and engaging — I would really recommend him for sales training specifically."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Akansha Prasad</div>
+                                <div class="role">Learning & Development – HR, Unicharm India Pvt. Ltd.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Vivek comes across as a wonderful professional with lots of energy and enthusiasm in the training sessions. His way of connecting with the audience is awesome. The clarity of thought, the articulation, the engagement with the target audience is really good. He is an amazing person with a human touch."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Pankaj Ailawadi</div>
+                                <div class="role">Human Resources</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"My highest recommendation to Mr. Vivek Joshi for the outstanding sales training and facilitation delivered to our employees. The sessions were highly engaging, well-structured, and tailored to our team's needs. His deep expertise in sales strategies, coupled with the ability to communicate complex concepts clearly, greatly enhanced the learning experience."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Apoorva Sharma</div>
+                                <div class="role">Assistant Manager (HR-Training)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-card" aria-hidden="true">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"I had the opportunity to work with Vivek Joshi during an Oncology Leadership Development Program, where he coached participants on public speaking in Bangladesh. His sessions were engaging, practical, and highly impactful — helping participants build confidence and communicate with clarity. A skilled, professional trainer."</blockquote>
+                        <div class="author">
+                            <div class="avatar-blank"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <div class="name">Dr. Jakaria Hossain</div>
+                                <div class="role">Senior Manager, Medical Affairs</div>
+                            </div>
                         </div>
                     </div>
                 </div>
